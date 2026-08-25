@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dattakrupa Agro Engineering Works | शेती अवजारे निर्माते</title>
+<meta name="description" content="Dattakrupa Agro Engineering Works - हळद, आले, बटाटा, ऊस लागवड व काढणी यंत्रे. वाई तालुका, सातारा. संपर्क: 9226772753">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange: #E59C58;
+    --orange-deep: #996F49;
+    --orange-soft: #FFEACE;
+    --green: #005B48;
+    --green-deep: #00392D;
+    --green-soft: #E1EDE8;
+    --ink: #17140F;
+    --ink-soft: #5B5346;
+    --paper: #FAF7F1;
+    --white: #FFFFFF;
+    --line: #E7DFD1;
+    --radius: 20px;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    font-family: 'Mukta', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width: 100%; display:block; }
+  ul{ list-style: none; }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* -------- Header -------- */
+  header{
+    position: fixed;
+    top: 0; left:0; right:0;
+    z-index: 100;
+    padding: 18px 0;
+    transition: all .3s ease;
+  }
+  header.scrolled{
+    background: rgba(250,247,241,0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 24px rgba(23,20,15,.08);
+    padding: 12px 0;
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+    gap: 16px;
+  }
+  .logo-wrap img{ height: 46px; width:auto; transition: height .3s ease; }
+  header.scrolled .logo-wrap img{ height: 40px; }
+  nav ul{
+    display:flex;
+    gap: 32px;
+    font-weight: 600;
+    font-size: .98rem;
+  }
+  header:not(.scrolled) nav a,
+  header:not(.scrolled) .logo-wrap{ filter: drop-shadow(0 1px 6px rgba(0,0,0,.35)); }
+  header:not(.scrolled) nav a{ color: var(--white); }
+  nav a{
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  nav a:hover{ border-color: var(--orange); }
+
+  /* -------- Uiverse.io style buttons (unified across the whole site) -------- */
+  .uiv-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-family: 'Mukta', sans-serif;
+    padding: .95em 2em;
+    font-weight: 600;
+    background: #005B48;
+    color: #fff;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.6em;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .uiv-btn svg{ width: 19px; height: 19px; flex-shrink: 0; fill: #fff; position: relative; z-index: 2; }
+  .uiv-btn .gradient{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 0.6em;
+    margin-top: -0.25em;
+    background-image: linear-gradient(
+      rgba(0,0,0,0),
+      rgba(0,0,0,0),
+      rgba(0,0,0,0.3)
+    );
+    pointer-events: none;
+  }
+  .uiv-btn .label{
+    position: relative;
+    top: -1px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .uiv-btn .ripple{
+    transition-timing-function: cubic-bezier(0,0,0.2,1);
+    transition-duration: 500ms;
+    background-color: rgba(81,133,97,.6);
+    border-radius: 9999px;
+    width: 0; height: 0;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .uiv-btn:hover .ripple{ width: 16em; height: 16em; }
+  .uiv-btn:active{ transform: scale(0.97); }
+  .uiv-btn--sm{ padding: .65em 1.5em; font-size: .95rem; }
+  .uiv-btn--sm svg{ width: 16px; height: 16px; }
+
+  /* -------- Hero -------- */
+  .hero{
+    position: relative;
+    min-height: 96vh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute; inset:0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .hero-bg video{
+    position:absolute;
+    top:50%; left:50%;
+    min-width:100%; min-height:100%;
+    width:auto; height:auto;
+    transform: translate(-50%,-50%);
+    object-fit: cover;
+  }
+  }
+  .hero-overlay{
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(23,20,15,.5) 0%, rgba(23,20,15,.15) 30%, rgba(23,20,15,.92) 100%),
+      linear-gradient(90deg, rgba(23,20,15,.88) 0%, rgba(23,20,15,.55) 38%, rgba(23,20,15,.1) 68%);
+  }
+  .hero-content{
+    position:relative;
+    z-index: 2;
+    width:100%;
+    padding: 160px 0 90px;
+  }
+  .hero-inner{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.35);
+    backdrop-filter: blur(6px);
+    color: var(--white);
+    font-weight: 600;
+    font-size: .85rem;
+    letter-spacing: .02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .eyebrow .dot{ width:7px; height:7px; border-radius:50%; background: var(--orange); }
+  .hero h1{
+    font-size: clamp(2.3rem, 5vw, 3.6rem);
+    color: var(--white);
+    max-width: 18ch;
+    text-shadow: 0 4px 24px rgba(0,0,0,.25);
+  }
+  .hero h1 span{ color: #FFEACE; }
+  .hero p.lead{
+    margin-top: 22px;
+    font-size: 1.18rem;
+    color: rgba(255,255,255,.9);
+    max-width: 50ch;
+    text-shadow: 0 2px 12px rgba(0,0,0,.3);
+  }
+  .hero-ctas{
+    display:flex;
+    gap: 16px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-stats{
+    position:relative;
+    z-index: 3;
+    display:flex;
+    gap: 0;
+    margin-top: 56px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.28);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 26px 8px;
+    max-width: 640px;
+  }
+  .hstat{
+    flex:1;
+    text-align:center;
+    border-right: 1px solid rgba(255,255,255,.25);
+    padding: 0 12px;
+  }
+  .hstat:last-child{ border-right:none; }
+  .hstat b{
+    display:block;
+    font-family:'Baloo 2', sans-serif;
+    font-size: 1.7rem;
+    color: var(--white);
+  }
+  .hstat span{ font-size: .82rem; color: rgba(255,255,255,.75); }
+
+  /* -------- Section headings -------- */
+  section{ padding: 100px 0; }
+  .section-head{ max-width: 620px; margin-bottom: 48px; }
+  .section-head .tag{
+    display:inline-block;
+    color: var(--orange-deep);
+    background: var(--orange-soft);
+    font-weight: 700;
+    font-size: .82rem;
+    letter-spacing: .03em;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .section-head.on-green .tag{ color: var(--green-deep); background: var(--green-soft); }
+  .section-head h2{ font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+  .section-head p{ color: var(--ink-soft); margin-top: 12px; font-size: 1.08rem; }
+
+  /* -------- About -------- */
+  .about{ background: var(--white); }
+  .about-grid{
+    display:grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 64px;
+    align-items:center;
+  }
+  .owner-photo-wrap{
+    position:relative;
+    width: 100%;
+    max-width: 340px;
+  }
+  .owner-photo-wrap .ring{
+    position:absolute;
+    inset: -16px;
+    border: 3px solid var(--orange);
+    border-radius: 28px;
+    z-index: 0;
+  }
+  .owner-photo-wrap .ring2{
+    position:absolute;
+    inset: 14px -30px -30px 14px;
+    background: var(--green-soft);
+    border-radius: 28px;
+    z-index: -1;
+  }
+  .owner-photo-wrap img{
+    position:relative;
+    z-index: 1;
+    border-radius: 24px;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(23,20,15,.15);
+  }
+  .owner-badge{
+    position:absolute;
+    z-index: 2;
+    bottom: -18px;
+    right: -18px;
+    background: var(--ink);
+    color: var(--white);
+    padding: 14px 20px;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0,0,0,.2);
+  }
+  .owner-badge b{ display:block; font-family:'Baloo 2',sans-serif; font-size: 1.05rem; }
+  .owner-badge span{ font-size: .8rem; color: #C9C2B3; }
+
+  .about-text .quote-mark{
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 4rem;
+    color: var(--orange);
+    line-height: .6;
+    margin-bottom: 6px;
+  }
+  .about-text h2{ font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 18px; }
+  .about-text p{ color: var(--ink-soft); font-size: 1.08rem; margin-bottom: 16px; }
+  .owner-sign{
+    margin-top: 28px;
+    display:flex;
+    align-items:center;
+    gap: 14px;
+  }
+  .owner-sign .bar{ width: 44px; height: 3px; background: var(--orange); border-radius: 2px; flex-shrink:0; }
+  .owner-sign b{ display:block; font-size: 1.1rem; }
+  .owner-sign span{ font-size: .88rem; color: var(--ink-soft); }
+
+  /* -------- Gallery -------- */
+  .gallery{ background: var(--paper); }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 220px);
+    gap: 18px;
+  }
+  .gallery-grid a{ display:block; border-radius: var(--radius); overflow:hidden; position:relative; }
+  .gallery-grid img{
+    width:100%; height:100%; object-fit:cover;
+    transition: transform .4s ease;
+  }
+  .gallery-grid a:hover img{ transform: scale(1.06); }
+  .g1{ grid-column: 1 / 3; grid-row: 1 / 3; }
+  .g2{ grid-column: 3 / 5; grid-row: 1 / 2; }
+  .g3{ grid-column: 3 / 4; grid-row: 2 / 3; }
+  .g4{ grid-column: 4 / 5; grid-row: 2 / 3; }
+  .gallery-cap{
+    position:absolute; left:0; right:0; bottom:0;
+    padding: 18px;
+    background: linear-gradient(0deg, rgba(0,0,0,.6), transparent);
+    color: var(--white);
+    font-weight: 600;
+    font-size: .92rem;
+  }
+
+  /* -------- Products / Price table -------- */
+  .products{ background: var(--white); }
+  .price-table-wrap{
+    background: var(--paper);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 0 var(--line);
+  }
+  table{ width: 100%; border-collapse: collapse; }
+  thead tr{ background: var(--ink); }
+  thead th{
+    color: var(--white);
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 600;
+    text-align: left;
+    padding: 18px 22px;
+    font-size: .96rem;
+  }
+  thead th.num, tbody td.num{ text-align: right; }
+  tbody tr{ border-bottom: 1px solid var(--line); transition: background .15s ease; }
+  tbody tr:last-child{ border-bottom: none; }
+  tbody tr:hover{ background: var(--white); }
+  tbody td{ padding: 18px 22px; font-size: .98rem; vertical-align: middle; }
+  td.name{ font-weight: 600; }
+  td.sr{ color: var(--ink-soft); font-weight: 700; width: 46px; }
+  .final-price{ color: var(--green-deep); font-weight: 800; font-size: 1.08rem; white-space: nowrap; }
+  .base-price{ color: var(--ink-soft); white-space: nowrap; }
+  .gst-tag{
+    display:inline-block; font-size: .74rem; font-weight: 700;
+    background: var(--green-soft); color: var(--green-deep);
+    padding: 3px 9px; border-radius: 7px;
+  }
+  .call-price{ color: var(--orange-deep); font-weight: 700; font-size: .92rem; }
+  .price-note{
+    padding: 18px 22px; font-size: .88rem; color: var(--ink-soft);
+    background: var(--white); border-top: 1px solid var(--line);
+  }
+  .table-scroll{ overflow-x: auto; }
+
+  /* -------- Why us -------- */
+  .why{ background: var(--paper); }
+  .why-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .why-card{
+    padding: 32px 24px;
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: 0 4px 20px rgba(23,20,15,.06);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .why-card:hover{ transform: translateY(-6px); box-shadow: 0 16px 32px rgba(23,20,15,.1); }
+  .why-card .icon-box{
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: var(--orange-soft);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+  .why-card:nth-child(even) .icon-box{ background: var(--green-soft); }
+  .why-card h3{ font-size: 1.12rem; margin-bottom: 8px; }
+  .why-card p{ font-size: .95rem; color: var(--ink-soft); }
+
+  /* -------- Contact -------- */
+  .contact{ background: var(--ink); color: var(--paper); }
+  .contact-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items:center; }
+  .contact h2{ color: var(--white); font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+  .contact p.lead{ color: #B9AF9E; margin-top: 14px; font-size: 1.08rem; max-width: 46ch; }
+  .contact-actions{ display:flex; gap: 16px; margin-top: 30px; flex-wrap: wrap; }
+
+  .contact-card{
+    background: #211D16;
+    border: 1px solid #3A3327;
+    border-radius: var(--radius);
+    padding: 30px;
+  }
+  .contact-row{
+    display:flex; gap: 16px; align-items:flex-start;
+    padding: 16px 0; border-bottom: 1px solid #3A3327;
+  }
+  .contact-row:first-child{ padding-top:0; }
+  .contact-row:last-child{ border-bottom: none; padding-bottom:0; }
+  .contact-row .ico{
+    width: 44px; height:44px; border-radius: 12px;
+    background: #005B48;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .contact-row .ico svg{ width: 20px; height: 20px; fill: #fff; }
+  .contact-row b{ display:block; font-size: .82rem; color:#9C9384; font-weight:600; margin-bottom: 2px; }
+  .contact-row span{ font-size: 1.08rem; font-weight: 600; color: var(--white); }
+
+  /* -------- Footer -------- */
+  footer{
+    background: #100D08; color: #7A7264;
+    padding: 56px 0 26px;
+    font-size: .88rem;
+  }
+  .footer-map{
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 18px;
+    border: 1px solid #322C21;
+  }
+  .footer-map iframe{
+    width: 100%;
+    height: 320px;
+    display: block;
+    border: 0;
+    filter: grayscale(.15) contrast(1.02);
+  }
+  .footer-map-card{
+    display:flex;
+    align-items:center;
+    gap: 20px;
+    background: #1B1710;
+    border: 1px solid #322C21;
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin-bottom: 34px;
+    text-decoration:none;
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .footer-map-card:hover{ transform: translateY(-3px); border-color: #005B48; }
+  .footer-map-card .map-ico{
+    width: 54px; height: 54px;
+    border-radius: 14px;
+    background: #005B48;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .footer-map-card .map-ico svg{ width: 26px; height: 26px; fill: #fff; }
+  .footer-map-card .map-text b{
+    display:block;
+    color: #EDE7D9;
+    font-size: 1.05rem;
+    font-family: 'Baloo 2', sans-serif;
+    margin-bottom: 4px;
+  }
+  .footer-map-card .map-text span{ color: #9C9384; font-size: .92rem; }
+  .footer-map-card .map-arrow{
+    margin-left: auto;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: #292319;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .footer-map-card .map-arrow svg{ width: 16px; height:16px; fill: #EDE7D9; }
+  .footer-bottom{ text-align:center; }
+
+  /* -------- Responsive -------- */
+  @media (max-width: 960px){
+    .about-grid{ grid-template-columns: 1fr; gap: 60px; }
+    .owner-photo-wrap{ margin: 0 auto; }
+    .gallery-grid{ grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 200px); }
+    .g1{ grid-column: 1/3; grid-row: 1/2; }
+    .g2{ grid-column: 1/2; grid-row: 2/3; }
+    .g3{ grid-column: 2/3; grid-row: 2/3; }
+    .g4{ grid-column: 1/3; grid-row: 3/4; }
+    .why-grid{ grid-template-columns: 1fr 1fr; }
+    .contact-grid{ grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px){
+    nav ul{ display:none; }
+    section{ padding: 72px 0; }
+    thead{ display:none; }
+    table, tbody, tr, td{ display:block; width:100%; }
+    tbody tr{ border: 1px solid var(--line); border-radius: 14px; margin: 12px 0; background: var(--white); }
+    tbody td{ display:flex; justify-content: space-between; align-items:center; padding: 12px 16px; border-bottom: 1px dashed var(--line); }
+    tbody td:last-child{ border-bottom:none; }
+    td.sr{ display:none; }
+    td.name{ font-size:1.05rem; background: var(--paper); border-radius: 14px 14px 0 0; }
+    td.base::before{ content:"मूळ किंमत"; color:var(--ink-soft); font-weight:600; font-size:.85rem;}
+    td.gst::before{ content:"GST (5%)"; color:var(--ink-soft); font-weight:600; font-size:.85rem;}
+    td.final::before{ content:"अंतिम किंमत"; color:var(--ink-soft); font-weight:600; font-size:.85rem;}
+  }
+  @media (max-width: 560px){
+    .footer-map iframe{ height: 240px; }
+    .footer-map-card{ flex-wrap: wrap; }
+    .footer-map-card .map-arrow{ margin-left: 0; }
+    .why-grid{ grid-template-columns: 1fr; }
+    .hero-ctas{ flex-direction:column; align-items:stretch; }
+    .btn{ justify-content:center; }
+    .hero-stats{ flex-wrap:wrap; }
+    .hstat{ flex: 1 1 45%; border-right:none; margin-bottom: 12px; }
+    .gallery-grid{ grid-template-columns: 1fr; grid-template-rows: repeat(4, 220px); }
+    .g1,.g2,.g3,.g4{ grid-column: 1/2; }
+    .g1{ grid-row:1/2;} .g2{ grid-row:2/3;} .g3{ grid-row:3/4;} .g4{ grid-row:4/5;}
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Dattakrupa Agro Engineering Works">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">आमच्याबद्दल</a></li>
+        <li><a href="#gallery">गॅलरी</a></li>
+        <li><a href="#products">उत्पादने</a></li>
+        <li><a href="#contact">संपर्क</a></li>
+      </ul>
+    </nav>
+    <a class="uiv-btn uiv-btn--sm" href="tel:9226772753">
+      <span class="gradient"></span>
+      <span class="label">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+        9226772753
+      </span>
+      <span class="ripple"></span>
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="video/hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <span class="eyebrow"><span class="dot"></span> वाई तालुका, सातारा</span>
+      <h1>शेतकऱ्यांसाठी <span>मजबूत आणि विश्वासार्ह</span> शेती अवजारे</h1>
+      <p class="lead">हळद, आले, बटाटा व ऊस लागवड-काढणी यंत्रांचे थेट उत्पादक. शेतातल्या कष्टाचं काम आता यंत्राच्या ताकदीने — वेळेवर आणि कमी खर्चात.</p>
+      <div class="hero-ctas">
+        <a class="uiv-btn" href="tel:9226772753">
+          <span class="gradient"></span>
+          <span class="label">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+            आत्ता कॉल करा
+          </span>
+          <span class="ripple"></span>
+        </a>
+        <a class="uiv-btn" href="https://wa.me/919226772753" target="_blank" rel="noopener">
+          <span class="gradient"></span>
+          <span class="label">
+            <svg viewBox="0 0 24 24"><path d="M12.01 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm0 18.1c-1.64 0-3.17-.47-4.46-1.28l-.32-.19-3 .79.8-2.93-.21-.3A8.09 8.09 0 0 1 3.9 12c0-4.47 3.64-8.1 8.11-8.1 4.47 0 8.1 3.63 8.1 8.1 0 4.47-3.63 8.1-8.1 8.1zm4.43-5.99c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp करा
+          </span>
+          <span class="ripple"></span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>7+</b><span>यंत्र प्रकार</span></div>
+        <div class="hstat"><b>60 HP</b><span>पर्यंत क्षमता</span></div>
+        <div class="hstat"><b>100%</b><span>शेतकरी विश्वास</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="owner-photo-wrap">
+      <div class="ring2"></div>
+      <div class="ring"></div>
+      <img src="images/owner.jpg" alt="विठ्ठल नथू गाडेकर - मालक, Dattakrupa Agro Engineering Works">
+      <div class="owner-badge">
+        <b>विठ्ठल गाडेकर</b>
+        <span>मालक, Dattakrupa Agro</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <span class="quote-mark">"</span>
+      <h2>शेतकऱ्याचं दुःख समजतो, म्हणून टिकणारं यंत्र बनवतो</h2>
+      <p>मी विठ्ठल नथू गाडेकर, Dattakrupa Agro Engineering Works चा मालक. शेतात राबणाऱ्या प्रत्येक शेतकऱ्याचे कष्ट मी जवळून पाहिले आहेत — म्हणूनच आमची प्रत्येक मशीन प्रत्यक्ष शेतातल्या अनुभवातून, मजबूत बांधणीसह तयार केली जाते.</p>
+      <p>हळद, आले, बटाटा लागवड-काढणी असो किंवा ऊस लागवड — आम्ही फक्त यंत्र विकत नाही, तर शेतकऱ्याच्या कामाचा वेळ आणि खर्च दोन्ही वाचवतो. गुणवत्तेशी कधीही तडजोड नाही.</p>
+      <div class="owner-sign">
+        <div class="bar"></div>
+        <div>
+          <b>विठ्ठल नथू गाडेकर</b>
+          <span>N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head on-green">
+      <span class="tag">आमची कामगिरी</span>
+      <h2>शेतात प्रत्यक्ष कार्यरत आमची यंत्रे</h2>
+      <p>फक्त बोलण्यापुरतं नाही — आमची मशीन्स प्रत्यक्ष शेतकऱ्यांच्या शेतात कशी काम करतात ते पहा.</p>
+    </div>
+    <div class="gallery-grid">
+      <a class="g1" href="images/machine-5.jpg" target="_blank" rel="noopener">
+        <img src="images/machine-5.jpg" alt="हळद आले बटाटा लागवड यंत्र - शेतात">
+        <div class="gallery-cap">लागवड यंत्र — शेतात तयार</div>
+      </a>
+      <a class="g2" href="images/machine-3.jpg" target="_blank" rel="noopener">
+        <img src="images/machine-3.jpg" alt="ऊस लागवड यंत्र - ट्रॅक्टरसह हवाई दृश्य">
+        <div class="gallery-cap">ऊस लागवड यंत्र</div>
+      </a>
+      <a class="g3" href="images/machine-1.jpg" target="_blank" rel="noopener">
+        <img src="images/machine-1.jpg" alt="ऊस लागवड यंत्र क्लोजअप">
+        <div class="gallery-cap">क्लोजअप</div>
+      </a>
+      <a class="g4" href="images/machine-2.jpg" target="_blank" rel="noopener">
+        <img src="images/machine-2.jpg" alt="ऊस लागवड यंत्र काम करताना">
+        <div class="gallery-cap">प्रत्यक्ष काम सुरू</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">किंमत यादी</span>
+      <h2>आमची यंत्रे आणि अंतिम किंमत (GST सह)</h2>
+      <p>खाली दिलेल्या सर्व किंमतींमध्ये 5% GST आधीच जोडून अंतिम किंमत दाखवली आहे — वेगळा हिशोब करायची गरज नाही.</p>
+    </div>
+
+    <div class="price-table-wrap">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th class="num">अनु.क्र.</th>
+              <th>औजारांची नावे</th>
+              <th class="num">मूळ किंमत</th>
+              <th class="num">GST (5%)</th>
+              <th class="num">अंतिम किंमत</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sr num">1</td>
+              <td class="name">हळद आले बटाटा लागवड मशीन</td>
+              <td class="base num">₹85,000</td>
+              <td class="gst num"><span class="gst-tag">₹4,250</span></td>
+              <td class="final num final-price">₹89,250</td>
+            </tr>
+            <tr>
+              <td class="sr num">2</td>
+              <td class="name">हळद आले बटाटा काढणी मशीन</td>
+              <td class="base num">₹1,45,000</td>
+              <td class="gst num"><span class="gst-tag">₹7,250</span></td>
+              <td class="final num final-price">₹1,52,250</td>
+            </tr>
+            <tr>
+              <td class="sr num">3</td>
+              <td class="name">BBF प्लॅंटर 42 ते 60 HP पेरणी यंत्र</td>
+              <td class="base num">₹67,000</td>
+              <td class="gst num"><span class="gst-tag">₹3,350</span></td>
+              <td class="final num final-price">₹70,350</td>
+            </tr>
+            <tr>
+              <td class="sr num">4</td>
+              <td class="name">42 ते 60 HP ऊस लागवड मशीन</td>
+              <td class="base num">₹1,00,000</td>
+              <td class="gst num"><span class="gst-tag">₹5,000</span></td>
+              <td class="final num final-price">₹1,05,000</td>
+            </tr>
+            <tr>
+              <td class="sr num">5</td>
+              <td class="name">42 ते 60 HP खोडवा कटर</td>
+              <td class="base num">₹75,000</td>
+              <td class="gst num"><span class="gst-tag">₹3,750</span></td>
+              <td class="final num final-price">₹78,750</td>
+            </tr>
+            <tr>
+              <td class="sr num">6</td>
+              <td class="name">42 ते 60 HP DK वीडर</td>
+              <td class="base num" colspan="3"><span class="call-price">📞 किंमतीसाठी संपर्क करा</span></td>
+            </tr>
+            <tr>
+              <td class="sr num">7</td>
+              <td class="name">32 ते 35 HP ऑर्चर्ड DK वीडर</td>
+              <td class="base num" colspan="3"><span class="call-price">📞 किंमतीसाठी संपर्क करा</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="price-note">* वरील सर्व किंमतींमध्ये 5% GST समाविष्ट आहे. अधिक माहितीसाठी किंवा वाहतूक खर्चाबाबत विचारण्यासाठी 9226772753 या क्रमांकावर संपर्क करा.</div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="section-head on-green">
+      <span class="tag">आमची वैशिष्ट्ये</span>
+      <h2>Dattakrupa Agro का ठरते शेतकऱ्यांची पहिली पसंती</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon-box">🛠</div>
+        <h3>टिकाऊपणा</h3>
+        <p>वर्षानुवर्षे शेतात काम करूनही न थकणारी मजबूत यंत्रे.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon-box">💰</div>
+        <h3>योग्य किंमत</h3>
+        <p>दर्जा राखून शेतकऱ्यांना परवडणाऱ्या किंमतीत यंत्रसामग्री.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon-box">🤝</div>
+        <h3>थेट संपर्क</h3>
+        <p>मध्यस्थांशिवाय, थेट उत्पादकाकडून खरेदी व मार्गदर्शन.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon-box">⏱</div>
+        <h3>वेळेची बचत</h3>
+        <p>मशीनमुळे लागवड व काढणीचे काम जलद आणि सोपे.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="tag" style="background:rgba(229,156,88,.22); color:#FFEACE;">संपर्क साधा</span>
+      <h2>तुमच्या शेतासाठी योग्य यंत्र निवडण्यासाठी आजच बोला</h2>
+      <p class="lead">किंमत, उपलब्धता किंवा यंत्राची माहिती हवी असल्यास फोन किंवा WhatsApp वर थेट संपर्क करा.</p>
+      <div class="contact-actions">
+        <a class="uiv-btn" href="tel:9226772753">
+          <span class="gradient"></span>
+          <span class="label">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+            कॉल करा
+          </span>
+          <span class="ripple"></span>
+        </a>
+        <a class="uiv-btn" href="https://wa.me/919226772753" target="_blank" rel="noopener">
+          <span class="gradient"></span>
+          <span class="label">
+            <svg viewBox="0 0 24 24"><path d="M12.01 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm0 18.1c-1.64 0-3.17-.47-4.46-1.28l-.32-.19-3 .79.8-2.93-.21-.3A8.09 8.09 0 0 1 3.9 12c0-4.47 3.64-8.1 8.11-8.1 4.47 0 8.1 3.63 8.1 8.1 0 4.47-3.63 8.1-8.1 8.1zm4.43-5.99c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </span>
+          <span class="ripple"></span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-row">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg></div>
+        <div><b>फोन नंबर</b><span>9226772753</span></div>
+      </div>
+      <div class="contact-row">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 7.5 12.5 7.5 12.5s7.5-7 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"/></svg></div>
+        <div><b>पत्ता</b><span>N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा</span></div>
+      </div>
+      <div class="contact-row">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.75 5v5.25l4.25 2.52-.63 1.03-4.87-2.9V7h1.25z"/></svg></div>
+        <div><b>वेळ</b><span>सोम - शनि, सकाळी 9 ते संध्या 7</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.2085591677615!2d74.02083427397325!3d17.828855489939805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc247488b52038b%3A0xe0b1740b4242bff4!2sDattakrupa%20Agro%20Engineering!5e0!3m2!1sen!2sin!4v1787650303840!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <a class="footer-map-card" href="https://maps.app.goo.gl/XFTPoe3c5xhjnyf6A" target="_blank" rel="noopener">
+      <div class="map-ico">
+        <svg viewBox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 7.5 12.5 7.5 12.5s7.5-7 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"/></svg>
+      </div>
+      <div class="map-text">
+        <b>NH4 Highway, Kisanveer Sugar Factory जवळ, भुईंज</b>
+        <span>Near Bhuinj, Maharashtra 415530</span>
+      </div>
+      <div class="map-arrow">
+        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="#EDE7D9" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </a>
+    <div class="footer-bottom">© Dattakrupa Agro Engineering Works — सर्व हक्क राखीव | मालक: विठ्ठल नथू गाडेकर</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+</script>
+
+</body>
+</html>
