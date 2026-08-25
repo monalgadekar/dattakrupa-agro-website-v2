@@ -243,33 +243,66 @@
   }
   .hstat span{ font-size: .8rem; color: var(--ink-soft); }
 
-  .hero-visual{ position:relative; }
-  .hero-visual-card{
+  .hero-visual{ position:relative; padding-bottom: 30px; }
+  .hero-visual-frame{
     position:relative;
     background: var(--white);
-    border-radius: 28px;
-    padding: 18px;
+    border-radius: 24px;
+    padding: 10px;
+    border: 3px solid var(--green);
     box-shadow: 0 24px 48px rgba(23,20,15,.12);
-    border: 1px solid var(--line);
+    overflow: hidden;
   }
-  .hero-visual-card img{
+  .hero-visual-top{
+    text-align:center;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--orange-deep);
+    padding: 10px 0 12px;
+  }
+  .hero-visual-frame img{
     width:100%;
-    aspect-ratio: 1/1;
-    object-fit: contain;
-    border-radius: 18px;
-    background: #FFFFFF;
-  }
-  .hero-visual-tag{
-    position:absolute;
-    left: 28px; bottom: 28px;
-    background: var(--ink);
-    color: var(--white);
-    padding: 12px 18px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
     border-radius: 14px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.2);
   }
-  .hero-visual-tag b{ display:block; font-family:'Baloo 2', sans-serif; font-size: 1rem; }
-  .hero-visual-tag span{ font-size: .78rem; color: #C9C2B3; }
+  .hero-visual-bottom{
+    background: var(--green-deep);
+    color: var(--white);
+    padding: 14px 16px;
+    border-radius: 14px;
+    margin-top: 10px;
+  }
+  .hero-visual-bottom b{ display:block; font-size: .92rem; font-weight: 600; }
+  .hero-visual-bottom span{ display:block; font-size: .78rem; color: #CFE3D8; margin-top: 3px; }
+  .hero-floating-badge{
+    position:absolute;
+    left: -20px; bottom: -14px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 16px;
+    display:flex; align-items:center; gap: 10px;
+    box-shadow: 0 12px 28px rgba(23,20,15,.14);
+    max-width: 230px;
+  }
+  .hero-floating-badge .fb-dot{
+    width: 26px; height:26px; flex-shrink:0;
+    border-radius:50%;
+    background: var(--green);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size: .8rem; font-weight:700;
+  }
+  .hero-floating-badge b{ display:block; font-size: .84rem; }
+  .hero-floating-badge span{ font-size: .74rem; color: var(--ink-soft); }
+  .uiv-btn-outline{
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--line);
+  }
+  .uiv-btn-outline .ripple{ background-color: rgba(0,91,72,.12); }
 
 
   /* -------- Section headings -------- */
@@ -357,6 +390,17 @@
   .owner-sign .bar{ width: 44px; height: 3px; background: var(--orange); border-radius: 2px; flex-shrink:0; }
   .owner-sign b{ display:block; font-size: 1.1rem; }
   .owner-sign span{ font-size: .88rem; color: var(--ink-soft); }
+  .about-pills{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .about-pill{
+    background: var(--orange-soft);
+    color: var(--orange-deep);
+    font-size: .82rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+  }
+  .about-pill:nth-child(2){ background: var(--green-soft); color: var(--green-deep); }
+  .about-pill:nth-child(3){ background: #EFE6DA; color: var(--ink-soft); }
 
   /* -------- Gallery -------- */
   .gallery{ background: var(--paper); }
@@ -385,295 +429,205 @@
     font-size: .92rem;
   }
 
-  /* -------- Product Slider -------- */
-  .product-slider-section{ background: var(--white); }
-  .slider-head-row{
+  /* -------- Product Grid with Filters -------- */
+  .product-grid-section{ background: var(--white); }
+  .pgrid-head-row{
     display:flex;
     justify-content: space-between;
-    align-items:flex-end;
-    gap: 20px;
-    margin-bottom: 36px;
+    align-items: flex-end;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
   }
-  .slider-nav{ display:flex; gap: 10px; flex-shrink: 0; }
-  .slider-nav button{
-    width: 46px; height: 46px;
-    border-radius: 50%;
-    border: 1px solid var(--line);
-    background: var(--paper);
-    cursor: pointer;
-    display:flex; align-items:center; justify-content:center;
-    transition: background .15s ease, transform .15s ease;
-  }
-  .slider-nav button:hover{ background: var(--orange-soft); transform: translateY(-2px); }
-  .slider-nav button svg{ width: 18px; height: 18px; }
-  .product-slider{
+  .pgrid-sub{ max-width: 34ch; color: var(--ink-soft); font-size: .98rem; }
+  .pgrid-filters{
     display:flex;
-    gap: 22px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
-    scrollbar-width: none;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
   }
-  .product-slider::-webkit-scrollbar{ display:none; }
-  .product-card{
-    flex: 0 0 auto;
-    width: 280px;
-    scroll-snap-align: start;
+  .pfilter{
     background: var(--paper);
     border: 1px solid var(--line);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: transform .2s ease, box-shadow .2s ease;
-  }
-  .product-card:hover{ transform: translateY(-6px); box-shadow: 0 16px 32px rgba(23,20,15,.1); }
-  .product-card-img{
-    width:100%;
-    aspect-ratio: 1/1;
-    background: var(--white);
-    display:flex; align-items:center; justify-content:center;
-    padding: 14px;
-    border-bottom: 1px solid var(--line);
-  }
-  .product-card-img img{ width:100%; height:100%; object-fit: contain; }
-  .product-card-body{ padding: 18px 20px 22px; }
-  .product-card-body h3{
-    font-size: 1.02rem;
-    font-family: 'Baloo 2', sans-serif;
-    margin-bottom: 10px;
-    min-height: 48px;
-  }
-  .product-card-price{ display:flex; align-items:baseline; gap: 8px; flex-wrap: wrap; }
-  .product-card-price .final{
-    font-family: 'Baloo 2', sans-serif;
-    font-size: 1.3rem;
-    color: var(--green-deep);
-  }
-  .product-card-price .base{
-    font-size: .84rem;
     color: var(--ink-soft);
-    text-decoration: line-through;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 600;
+    font-size: .92rem;
+    padding: 9px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease;
   }
-  .product-card-gst{
-    display:inline-block;
-    margin-top: 6px;
-    font-size: .74rem;
-    font-weight: 700;
-    background: var(--green-soft);
-    color: var(--green-deep);
-    padding: 3px 9px;
-    border-radius: 7px;
-  }
-  .product-card-callprice{
-    color: var(--orange-deep);
-    font-weight: 700;
-    font-size: .96rem;
-  }
-  .product-card{ cursor: pointer; }
+  .pfilter:hover{ background: var(--orange-soft); }
+  .pfilter.active{ background: var(--ink); color: var(--white); border-color: var(--ink); }
 
-  /* -------- Product Modal -------- */
-  .pmodal-overlay{
-    display:none;
-    position: fixed; inset: 0;
-    background: rgba(23,20,15,.6);
-    backdrop-filter: blur(4px);
-    z-index: 200;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+  .pgrid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
   }
-  .pmodal-overlay.open{ display:flex; }
-  .pmodal{
+  .pcard{
     position:relative;
     background: var(--paper);
-    border-radius: 24px;
-    max-width: 880px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    box-shadow: 0 30px 60px rgba(0,0,0,.3);
-  }
-  .pmodal-close{
-    position:absolute;
-    top: 16px; right: 16px;
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: var(--white);
     border: 1px solid var(--line);
-    display:flex; align-items:center; justify-content:center;
-    cursor: pointer;
-    z-index: 2;
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-  }
-  .pmodal-close svg{ width: 18px; height: 18px; }
-  .pmodal-img{
-    background: var(--white);
-    display:flex; align-items:center; justify-content:center;
-    padding: 30px;
-  }
-  .pmodal-img img{
-    width: 100%;
-    max-height: 380px;
-    object-fit: contain;
-  }
-  .pmodal-body{
-    padding: 40px 36px 40px 8px;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .pmodal-tag{
-    display:inline-block;
-    color: var(--orange-deep);
-    font-weight: 700;
-    font-size: .85rem;
-    margin-bottom: 12px;
-  }
-  .pmodal-body h3{
-    font-size: 1.6rem;
-    margin-bottom: 16px;
-  }
-  .pmodal-body p{
-    color: var(--ink-soft);
-    font-size: 1.02rem;
-    margin-bottom: 26px;
-  }
-  .pmodal-price-box{
-    background: var(--green-soft);
-    border-radius: 16px;
-    padding: 18px 22px;
-    margin-bottom: 24px;
-  }
-  .pmodal-price-box .plabel{
-    display:block;
-    font-size: .82rem;
-    color: var(--green-deep);
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-  .pmodal-price-box .pvalue{
-    font-family: 'Baloo 2', sans-serif;
-    font-size: 2rem;
-    color: var(--green-deep);
-  }
-  .pmodal-price-box .pcall{
-    font-family: 'Baloo 2', sans-serif;
-    font-size: 1.3rem;
-    color: var(--orange-deep);
-  }
-  .pmodal-wa{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap: 10px;
-    background: #005B48;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 15px 24px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: background .15s ease, transform .15s ease;
-  }
-  .pmodal-wa:hover{ background: #00483A; transform: translateY(-2px); }
-  .pmodal-wa svg{ width: 19px; height:19px; fill: #fff; }
-
-  @media (max-width: 700px){
-    .pmodal{ grid-template-columns: 1fr; }
-    .pmodal-body{ padding: 28px 24px; }
-  }
-
-  /* -------- Products / Price table -------- */
-  .products{ background: var(--white); }
-  .price-table-wrap{
-    background: var(--paper);
     border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 0 1px 0 var(--line);
-  }
-  table{ width: 100%; border-collapse: collapse; }
-  thead tr{ background: var(--ink); }
-  thead th{
-    color: var(--white);
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 600;
-    text-align: left;
-    padding: 18px 22px;
-    font-size: .96rem;
-  }
-  thead th.num, tbody td.num{ text-align: right; }
-  tbody tr{ border-bottom: 1px solid var(--line); transition: background .15s ease; }
-  tbody tr:last-child{ border-bottom: none; }
-  tbody tr:hover{ background: var(--white); }
-  tbody td{ padding: 18px 22px; font-size: .98rem; vertical-align: middle; }
-  td.name{ font-weight: 600; }
-  td.sr{ color: var(--ink-soft); font-weight: 700; width: 46px; }
-  .final-price{ color: var(--green-deep); font-weight: 800; font-size: 1.08rem; white-space: nowrap; }
-  .base-price{ color: var(--ink-soft); white-space: nowrap; }
-  .gst-tag{
-    display:inline-block; font-size: .74rem; font-weight: 700;
-    background: var(--green-soft); color: var(--green-deep);
-    padding: 3px 9px; border-radius: 7px;
-  }
-  .call-price{ color: var(--orange-deep); font-weight: 700; font-size: .92rem; }
-  .price-note{
-    padding: 18px 22px; font-size: .88rem; color: var(--ink-soft);
-    background: var(--white); border-top: 1px solid var(--line);
-  }
-  .table-scroll{ overflow-x: auto; }
-
-  /* -------- Why us -------- */
-  .why{ background: var(--paper); }
-  .why-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-  .why-card{
-    padding: 32px 24px;
-    border-radius: var(--radius);
-    background: var(--white);
-    box-shadow: 0 4px 20px rgba(23,20,15,.06);
     transition: transform .2s ease, box-shadow .2s ease;
+    cursor: pointer;
   }
-  .why-card:hover{ transform: translateY(-6px); box-shadow: 0 16px 32px rgba(23,20,15,.1); }
-  .why-card .icon-box{
-    width: 52px; height: 52px;
-    border-radius: 14px;
-    background: var(--orange-soft);
+  .pcard:hover{ transform: translateY(-6px); box-shadow: 0 18px 34px rgba(23,20,15,.1); }
+  .pcard-tag{
+    position:absolute;
+    top: 14px; left: 14px;
+    z-index: 2;
+    background: var(--white);
+    color: var(--orange-deep);
+    font-weight: 700;
+    font-size: .74rem;
+    padding: 5px 12px;
+    border-radius: 999px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+  }
+  .pcard-img{
+    width:100%;
+    aspect-ratio: 4/3;
+    background: var(--white);
     display:flex; align-items:center; justify-content:center;
-    font-size: 1.4rem;
-    margin-bottom: 18px;
+    padding: 16px;
+    border-bottom: 1px solid var(--line);
   }
-  .why-card:nth-child(even) .icon-box{ background: var(--green-soft); }
-  .why-card h3{ font-size: 1.12rem; margin-bottom: 8px; }
-  .why-card p{ font-size: .95rem; color: var(--ink-soft); }
+  .pcard-img img{ width:100%; height:100%; object-fit: contain; }
+  .pcard-body{ padding: 18px 20px 20px; }
+  .pcard-body h3{
+    font-size: 1.05rem;
+    font-family: 'Baloo 2', sans-serif;
+    margin-bottom: 8px;
+  }
+  .pcard-body p{
+    font-size: .88rem;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    min-height: 40px;
+  }
+  .pcard-bottom{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .pcard-label{ display:block; font-size: .72rem; color: var(--ink-soft); font-weight:600; }
+  .pcard-bottom b{
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.2rem;
+    color: var(--green-deep);
+  }
+  .pcard-callprice{ color: var(--orange-deep); font-weight: 700; font-size: .88rem; }
+  .pcard-link{
+    background: none;
+    border: none;
+    color: var(--green-deep);
+    font-weight: 700;
+    font-size: .88rem;
+    cursor: pointer;
+    padding: 6px 4px;
+  }
+  .pcard-link:hover{ text-decoration: underline; }
+  .pcard[data-hide="true"]{ display:none; }
 
-  /* -------- Contact -------- */
-  .contact{ background: var(--ink); color: var(--paper); }
-  .contact-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items:center; }
-  .contact h2{ color: var(--white); font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
-  .contact p.lead{ color: #B9AF9E; margin-top: 14px; font-size: 1.08rem; max-width: 46ch; }
-  .contact-actions{ display:flex; gap: 16px; margin-top: 30px; flex-wrap: wrap; }
+  /* -------- Green Feature Band -------- */
+  .green-band{ background: var(--green-deep); color: var(--paper); }
+  .green-band-grid{
+    display:grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 50px;
+    align-items:center;
+  }
+  .green-band-text h2{ color: var(--white); font-size: clamp(1.7rem, 3vw, 2.3rem); margin-top:14px; }
+  .green-band-text p{ color: #CFE3D8; margin-top: 14px; font-size: 1.02rem; max-width: 38ch; }
+  .green-band-btn{ margin-top: 26px; background: var(--orange); }
+  .green-band-btn .ripple{ background-color: rgba(255,255,255,.35); }
+  .green-band-features{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .gb-card{
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 16px;
+    padding: 22px;
+  }
+  .gb-icon{ font-size: 1.5rem; margin-bottom: 10px; }
+  .gb-card h3{ font-family:'Baloo 2', sans-serif; font-size: 1rem; color: var(--white); margin-bottom: 6px; }
+  .gb-card p{ font-size: .86rem; color: #C3D6CC; }
 
-  .contact-card{
-    background: #211D16;
-    border: 1px solid #3A3327;
+  /* -------- Orange CTA Band -------- */
+  .orange-band{ background: linear-gradient(135deg, var(--orange-deep), #7A5636); color: #fff; }
+  .orange-band-grid{
+    display:grid;
+    grid-template-columns: 1fr .95fr;
+    gap: 50px;
+    align-items:center;
+  }
+  .orange-band-text h2{ color: #fff; font-size: clamp(1.7rem, 3.2vw, 2.3rem); margin-top: 14px; line-height:1.25; }
+  .orange-band-text p{ color: rgba(255,255,255,.85); margin-top: 14px; font-size: 1.02rem; max-width: 42ch; }
+  .ob-actions{ display:flex; gap: 22px; margin-top: 28px; flex-wrap: wrap; }
+  .ob-link{
+    display:inline-flex; align-items:center; gap: 10px;
+    color: #fff; font-weight: 700; font-size: 1.05rem;
+    text-decoration: underline; text-underline-offset: 4px;
+  }
+  .ob-link svg{ width: 20px; height:20px; fill: #fff; }
+  .ob-info-row{ display:flex; gap: 34px; margin-top: 34px; flex-wrap: wrap; }
+  .ob-info{ display:flex; gap: 10px; align-items:flex-start; }
+  .ob-info svg{ width: 18px; height:18px; fill: rgba(255,255,255,.9); margin-top: 2px; flex-shrink:0; }
+  .ob-info b{ display:block; font-size: .84rem; color: #fff; }
+  .ob-info span{ font-size: .82rem; color: rgba(255,255,255,.75); }
+
+  .ob-form{
+    background: var(--white);
     border-radius: var(--radius);
-    padding: 30px;
+    padding: 32px;
+    box-shadow: 0 24px 48px rgba(0,0,0,.2);
   }
-  .contact-row{
-    display:flex; gap: 16px; align-items:flex-start;
-    padding: 16px 0; border-bottom: 1px solid #3A3327;
+  .ob-form h3{ font-family:'Baloo 2', sans-serif; font-size: 1.3rem; color: var(--ink); margin-bottom: 20px; }
+  .ob-form label{
+    display:block;
+    font-size: .86rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
   }
-  .contact-row:first-child{ padding-top:0; }
-  .contact-row:last-child{ border-bottom: none; padding-bottom:0; }
-  .contact-row .ico{
-    width: 44px; height:44px; border-radius: 12px;
+  .ob-form input, .ob-form select{
+    display:block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-family: 'Mukta', sans-serif;
+    font-size: .96rem;
+    color: var(--ink);
+    background: var(--paper);
+  }
+  .ob-form input:focus, .ob-form select:focus{ outline: 2px solid var(--green); border-color: var(--green); }
+  .ob-submit{
+    width: 100%;
     background: #005B48;
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background .15s ease;
   }
-  .contact-row .ico svg{ width: 20px; height: 20px; fill: #fff; }
-  .contact-row b{ display:block; font-size: .82rem; color:#9C9384; font-weight:600; margin-bottom: 2px; }
-  .contact-row span{ font-size: 1.08rem; font-weight: 600; color: var(--white); }
+  .ob-submit:hover{ background: #00483A; }
+  .ob-form-note{ display:block; text-align:center; font-size: .78rem; color: var(--ink-soft); margin-top: 12px; }
 
   /* -------- Footer -------- */
   footer{
@@ -745,35 +699,27 @@
     .g2{ grid-column: 1/2; grid-row: 2/3; }
     .g3{ grid-column: 2/3; grid-row: 2/3; }
     .g4{ grid-column: 1/3; grid-row: 3/4; }
-    .why-grid{ grid-template-columns: 1fr 1fr; }
-    .contact-grid{ grid-template-columns: 1fr; }
+    .pgrid{ grid-template-columns: 1fr 1fr; }
+    .green-band-grid{ grid-template-columns: 1fr; gap: 36px; }
+    .orange-band-grid{ grid-template-columns: 1fr; gap: 36px; }
   }
   @media (max-width: 760px){
     nav ul{ display:none; }
     section{ padding: 72px 0; }
-    thead{ display:none; }
-    table, tbody, tr, td{ display:block; width:100%; }
-    tbody tr{ border: 1px solid var(--line); border-radius: 14px; margin: 12px 0; background: var(--white); }
-    tbody td{ display:flex; justify-content: space-between; align-items:center; padding: 12px 16px; border-bottom: 1px dashed var(--line); }
-    tbody td:last-child{ border-bottom:none; }
-    td.sr{ display:none; }
-    td.name{ font-size:1.05rem; background: var(--paper); border-radius: 14px 14px 0 0; }
-    td.base::before{ content:"मूळ किंमत"; color:var(--ink-soft); font-weight:600; font-size:.85rem;}
-    td.gst::before{ content:"GST (5%)"; color:var(--ink-soft); font-weight:600; font-size:.85rem;}
-    td.final::before{ content:"अंतिम किंमत"; color:var(--ink-soft); font-weight:600; font-size:.85rem;}
+    .pgrid{ grid-template-columns: 1fr; }
+    .green-band-features{ grid-template-columns: 1fr; }
   }
   @media (max-width: 560px){
     .footer-map iframe{ height: 240px; }
     .footer-map-card{ flex-wrap: wrap; }
     .footer-map-card .map-arrow{ margin-left: 0; }
-    .why-grid{ grid-template-columns: 1fr; }
     .hero-ctas{ flex-direction:column; align-items:stretch; }
-    .btn{ justify-content:center; }
     .hero-stats{ flex-wrap:wrap; }
     .hstat{ flex: 1 1 45%; border-right:none; margin-bottom: 12px; }
     .gallery-grid{ grid-template-columns: 1fr; grid-template-rows: repeat(4, 220px); }
     .g1,.g2,.g3,.g4{ grid-column: 1/2; }
     .g1{ grid-row:1/2;} .g2{ grid-row:2/3;} .g3{ grid-row:3/4;} .g4{ grid-row:4/5;}
+    .ob-actions{ gap: 16px; }
   }
 </style>
 </head>
@@ -786,9 +732,9 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#about">आमच्याबद्दल</a></li>
-        <li><a href="#gallery">गॅलरी</a></li>
-        <li><a href="#products">उत्पादने</a></li>
+        <li><a href="#product-grid">यंत्रे</a></li>
+        <li><a href="#about">आमची गोष्ट</a></li>
+        <li><a href="#why">का दत्तकृपा?</a></li>
         <li><a href="#contact">संपर्क</a></li>
       </ul>
     </nav>
@@ -808,39 +754,38 @@
   <div class="hero-blob hero-blob-2"></div>
   <div class="wrap hero-split">
     <div class="hero-text">
-      <span class="eyebrow-light"><span class="dot"></span> वाई तालुका, सातारा</span>
-      <h1>शेतकऱ्यांसाठी <span>मजबूत आणि विश्वासार्ह</span> शेती अवजारे</h1>
-      <p class="lead">हळद, आले, बटाटा व ऊस लागवड-काढणी यंत्रांचे थेट उत्पादक. शेतातल्या कष्टाचं काम आता यंत्राच्या ताकदीने — वेळेवर आणि कमी खर्चात.</p>
+      <span class="eyebrow-light"><span class="dot"></span> शेतकऱ्यांच्या भरवशाचे — वाई, सातारा</span>
+      <h1>शेतात राबणारी <span>यंत्रे.</span> मनापासून बनवणारे आम्ही.</h1>
+      <p class="lead">Dattakrupa Agro — शेतकऱ्यांच्या गरजेतून तयार झालेली शेतीची यंत्रे. थेट वर्कशॉपमधून, योग्य किंमतीत आणि तुमच्या शेतासाठी.</p>
       <div class="hero-ctas">
-        <a class="uiv-btn" href="tel:9226772753">
+        <a class="uiv-btn" href="#product-grid">
           <span class="gradient"></span>
-          <span class="label">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
-            आत्ता कॉल करा
-          </span>
+          <span class="label">यंत्रे पाहा ↓</span>
           <span class="ripple"></span>
         </a>
-        <a class="uiv-btn" href="https://wa.me/919226772753" target="_blank" rel="noopener">
-          <span class="gradient"></span>
-          <span class="label">
-            <svg viewBox="0 0 24 24"><path d="M12.01 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm0 18.1c-1.64 0-3.17-.47-4.46-1.28l-.32-.19-3 .79.8-2.93-.21-.3A8.09 8.09 0 0 1 3.9 12c0-4.47 3.64-8.1 8.11-8.1 4.47 0 8.1 3.63 8.1 8.1 0 4.47-3.63 8.1-8.1 8.1zm4.43-5.99c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28z"/></svg>
-            WhatsApp करा
-          </span>
-          <span class="ripple"></span>
+        <a class="uiv-btn uiv-btn-outline" href="https://wa.me/919226772753" target="_blank" rel="noopener">
+          <span class="label">भेट बोलूया</span>
         </a>
       </div>
       <div class="hero-stats">
-        <div class="hstat"><b>7+</b><span>यंत्र प्रकार</span></div>
-        <div class="hstat"><b>60 HP</b><span>पर्यंत क्षमता</span></div>
-        <div class="hstat"><b>100%</b><span>शेतकरी विश्वास</span></div>
+        <div class="hstat"><b>25+</b><span>वर्षांचा अनुभव</span></div>
+        <div class="hstat"><b>थेट</b><span>निर्मात्याकडून विक्री</span></div>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-visual-card">
-        <img src="images/weeder.jpg" alt="DK वीडर - Dattakrupa Agro">
-        <div class="hero-visual-tag">
-          <b>DK वीडर</b>
-          <span>मजबूत व टिकाऊ बांधणी</span>
+      <div class="hero-visual-frame">
+        <div class="hero-visual-top">ऊस लागवड यंत्र</div>
+        <img src="images/machine-3.jpg" alt="ऊस लागवड यंत्र - Dattakrupa Agro">
+        <div class="hero-visual-bottom">
+          <b>अधिक माहितीसाठी संपर्क 9226772753</b>
+          <span>पत्ता. N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा.</span>
+        </div>
+      </div>
+      <div class="hero-floating-badge">
+        <span class="fb-dot">✓</span>
+        <div>
+          <b>फक्त विक्री नाही</b>
+          <span>यंत्र समजपूर्वी सोबत</span>
         </div>
       </div>
     </div>
@@ -870,6 +815,11 @@
           <span>N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा</span>
         </div>
       </div>
+      <div class="about-pills">
+        <span class="about-pill">स्थानिक निर्मिती</span>
+        <span class="about-pill">भेट मार्गदर्शन</span>
+        <span class="about-pill">शेतकरी प्रथम</span>
+      </div>
     </div>
   </div>
 </section>
@@ -877,273 +827,219 @@
 <section class="gallery" id="gallery">
   <div class="wrap">
     <div class="section-head on-green">
-      <span class="tag">आमची कामगिरी</span>
-      <h2>शेतात प्रत्यक्ष कार्यरत आमची यंत्रे</h2>
+      <span class="tag">शेतात काम करताना</span>
+      <h2>काम बोलतं.</h2>
       <p>फक्त बोलण्यापुरतं नाही — आमची मशीन्स प्रत्यक्ष शेतकऱ्यांच्या शेतात कशी काम करतात ते पहा.</p>
     </div>
     <div class="gallery-grid">
-      <a class="g1" href="images/machine-5.jpg" target="_blank" rel="noopener">
-        <img src="images/machine-5.jpg" alt="हळद आले बटाटा लागवड यंत्र - शेतात">
+      <a class="g1" href="images/machine_5.jpg" target="_blank" rel="noopener">
+        <img src="images/machine_5.jpg" alt="हळद आले बटाटा लागवड यंत्र - शेतात">
         <div class="gallery-cap">लागवड यंत्र — शेतात तयार</div>
       </a>
-      <a class="g2" href="images/machine-3.jpg" target="_blank" rel="noopener">
-        <img src="images/machine-3.jpg" alt="ऊस लागवड यंत्र - ट्रॅक्टरसह हवाई दृश्य">
+      <a class="g2" href="images/machine_3.jpg" target="_blank" rel="noopener">
+        <img src="images/machine_3.jpg" alt="ऊस लागवड यंत्र - ट्रॅक्टरसह हवाई दृश्य">
         <div class="gallery-cap">ऊस लागवड यंत्र</div>
       </a>
-      <a class="g3" href="images/machine-1.jpg" target="_blank" rel="noopener">
-        <img src="images/machine-1.jpg" alt="ऊस लागवड यंत्र क्लोजअप">
+      <a class="g3" href="images/machine_1.jpg" target="_blank" rel="noopener">
+        <img src="images/machine_1.jpg" alt="ऊस लागवड यंत्र क्लोजअप">
         <div class="gallery-cap">क्लोजअप</div>
       </a>
-      <a class="g4" href="images/machine-2.jpg" target="_blank" rel="noopener">
-        <img src="images/machine-2.jpg" alt="ऊस लागवड यंत्र काम करताना">
+      <a class="g4" href="images/machine_2.jpg" target="_blank" rel="noopener">
+        <img src="images/machine_2.jpg" alt="ऊस लागवड यंत्र काम करताना">
         <div class="gallery-cap">प्रत्यक्ष काम सुरू</div>
       </a>
     </div>
   </div>
 </section>
 
-<section class="product-slider-section" id="product-slider">
+<section class="product-grid-section" id="product-grid">
   <div class="wrap">
-    <div class="slider-head-row">
+    <div class="pgrid-head-row">
       <div class="section-head" style="margin-bottom:0;">
-        <span class="tag">आमची उत्पादने</span>
-        <h2>प्रत्येक यंत्र, योग्य किंमतीसह</h2>
-        <p>फोटो बघून निवड कर — प्रत्येक किंमतीत 5% GST आधीच समाविष्ट आहे.</p>
+        <span class="tag">आमची यंत्रे</span>
+        <h2>काम सोपे करणारी सात साथीदार.</h2>
       </div>
-      <div class="slider-nav">
-        <button type="button" id="sliderPrev" aria-label="मागे">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#17140F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button type="button" id="sliderNext" aria-label="पुढे">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#17140F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
+      <p class="pgrid-sub">प्रत्येक यंत्रावर रचना शेतातल्या खऱ्या कामातून झाली — निवडा, अंतिम किंमत पाहा किंवा तपशील बघा.</p>
     </div>
 
-    <div class="product-slider" id="productSlider">
-      <div class="product-card" data-name="हळद आले बटाटा लागवड मशीन" data-img="images/product-planting.jpg" data-tag="लागवड" data-desc="जमिनीत योग्य खोलीवर बियाणे अचूक लागवड करणारे मजबूत यंत्र." data-price="₹89,250" data-base="₹85,000">
-        <div class="product-card-img"><img src="images/product-planting.jpg" alt="हळद आले बटाटा लागवड मशीन"></div>
-        <div class="product-card-body">
+    <div class="pgrid-filters" id="pgridFilters">
+      <button class="pfilter active" data-filter="all">सर्व यंत्रे</button>
+      <button class="pfilter" data-filter="लागवड">लागवड</button>
+      <button class="pfilter" data-filter="काढणी">काढणी</button>
+      <button class="pfilter" data-filter="पेरणी">पेरणी</button>
+      <button class="pfilter" data-filter="खोडवा">खोडवा</button>
+      <button class="pfilter" data-filter="वीडर">वीडर</button>
+    </div>
+
+    <div class="pgrid" id="productGrid">
+      <div class="pcard" data-cat="लागवड" data-name="हळद आले बटाटा लागवड मशीन" data-img="images/product-planting.jpg" data-tag="लागवड" data-desc="जमिनीत योग्य खोलीवर बियाणे अचूक लागवड करणारे मजबूत यंत्र." data-price="₹89,250">
+        <span class="pcard-tag">लागवड</span>
+        <div class="pcard-img"><img src="images/product-planting.jpg" alt="हळद आले बटाटा लागवड मशीन"></div>
+        <div class="pcard-body">
           <h3>हळद आले बटाटा लागवड मशीन</h3>
-          <div class="product-card-price">
-            <span class="final">₹89,250</span>
-            <span class="base">₹85,000</span>
+          <p>हळद, आले बटाट्यासाठी अचूक लागवड. शेतात कमी मजुरीत काम.</p>
+          <div class="pcard-bottom">
+            <div><span class="pcard-label">GST सह</span><b>₹89,250</b></div>
+            <button class="pcard-link">तपशील →</button>
           </div>
-          <span class="product-card-gst">GST 5% सह</span>
         </div>
       </div>
 
-      <div class="product-card" data-name="हळद आले बटाटा काढणी मशीन" data-img="images/product-harvesting.jpg" data-tag="काढणी" data-desc="मातीमधून पीक अलगद बाहेर काढणारे मजबूत काढणी यंत्र." data-price="₹1,52,250" data-base="₹1,45,000">
-        <div class="product-card-img"><img src="images/product-harvesting.jpg" alt="हळद आले बटाटा काढणी मशीन"></div>
-        <div class="product-card-body">
+      <div class="pcard" data-cat="काढणी" data-name="हळद आले बटाटा काढणी मशीन" data-img="images/product-harvesting.jpg" data-tag="काढणी" data-desc="मातीमधून पीक अलगद बाहेर काढणारे मजबूत काढणी यंत्र." data-price="₹1,52,250">
+        <span class="pcard-tag">काढणी</span>
+        <div class="pcard-img"><img src="images/product-harvesting.jpg" alt="हळद आले बटाटा काढणी मशीन"></div>
+        <div class="pcard-body">
           <h3>हळद आले बटाटा काढणी मशीन</h3>
-          <div class="product-card-price">
-            <span class="final">₹1,52,250</span>
-            <span class="base">₹1,45,000</span>
+          <p>मातीमधून पीक अलगद बाहेर काढणारे, कष्ट कमी करणारे यंत्र.</p>
+          <div class="pcard-bottom">
+            <div><span class="pcard-label">GST सह</span><b>₹1,52,250</b></div>
+            <button class="pcard-link">तपशील →</button>
           </div>
-          <span class="product-card-gst">GST 5% सह</span>
         </div>
       </div>
 
-      <div class="product-card" data-name="BBF प्लॅंटर 42 ते 60 HP पेरणी यंत्र" data-img="images/product-perni.jpg" data-tag="पेरणी" data-desc="बेड पद्धतीने अचूक बियाणे व खत पेरणी करणारे यंत्र." data-price="₹70,350" data-base="₹67,000">
-        <div class="product-card-img"><img src="images/product-perni.jpg" alt="BBF प्लॅंटर पेरणी यंत्र"></div>
-        <div class="product-card-body">
-          <h3>BBF प्लॅंटर 42 ते 60 HP पेरणी यंत्र</h3>
-          <div class="product-card-price">
-            <span class="final">₹70,350</span>
-            <span class="base">₹67,000</span>
+      <div class="pcard" data-cat="पेरणी" data-name="BBF प्लॅंटर 42 ते 60 HP पेरणी यंत्र" data-img="images/product-perni.jpg" data-tag="पेरणी" data-desc="बेड पद्धतीने अचूक बियाणे व खत पेरणी करणारे यंत्र." data-price="₹70,350">
+        <span class="pcard-tag">पेरणी</span>
+        <div class="pcard-img"><img src="images/product-perni.jpg" alt="BBF प्लॅंटर पेरणी यंत्र"></div>
+        <div class="pcard-body">
+          <h3>BBF प्लॅंटर पेरणी यंत्र</h3>
+          <p>BBF पद्धतीने समान अंतरावर पेरणी, पीक व्यवस्थापन अधिक सोपे.</p>
+          <div class="pcard-bottom">
+            <div><span class="pcard-label">GST सह</span><b>₹70,350</b></div>
+            <button class="pcard-link">तपशील →</button>
           </div>
-          <span class="product-card-gst">GST 5% सह</span>
         </div>
       </div>
 
-      <div class="product-card" data-name="42 ते 60 HP ऊस लागवड मशीन" data-img="images/machine-5.jpg" data-tag="लागवड" data-desc="ऊस लागवडीचे काम जलद, अचूक व कमी मजुरीत करणारे यंत्र." data-price="₹1,05,000" data-base="₹1,00,000">
-        <div class="product-card-img"><img src="images/machine_5.jpg" alt="ऊस लागवड मशीन"></div>
-        <div class="product-card-body">
-          <h3>42 ते 60 HP ऊस लागवड मशीन</h3>
-          <div class="product-card-price">
-            <span class="final">₹1,05,000</span>
-            <span class="base">₹1,00,000</span>
+      <div class="pcard" data-cat="लागवड" data-name="42 ते 60 HP ऊस लागवड मशीन" data-img="images/machine-5.jpg" data-tag="लागवड" data-desc="ऊस लागवडीचे काम जलद, अचूक व कमी मजुरीत करणारे यंत्र." data-price="₹1,05,000">
+        <span class="pcard-tag">लागवड</span>
+        <div class="pcard-img"><img src="images/machine-5.jpg" alt="ऊस लागवड मशीन"></div>
+        <div class="pcard-body">
+          <h3>ऊस लागवड मशीन</h3>
+          <p>ऊस लागवडीचे शेतकऱ्यांच्या सिद्ध झालेले, विश्वासाने वापरले जाणारे यंत्र.</p>
+          <div class="pcard-bottom">
+            <div><span class="pcard-label">GST सह</span><b>₹1,05,000</b></div>
+            <button class="pcard-link">तपशील →</button>
           </div>
-          <span class="product-card-gst">GST 5% सह</span>
         </div>
       </div>
 
-      <div class="product-card" data-name="42 ते 60 HP खोडवा कटर" data-img="images/product-khodva.jpg" data-tag="खोडवा" data-desc="ऊस खोडवा तोडून पुढील पिकासाठी जमीन तयार करणारे यंत्र." data-price="₹78,750" data-base="₹75,000">
-        <div class="product-card-img"><img src="images/product-khodva.jpg" alt="खोडवा कटर"></div>
-        <div class="product-card-body">
-          <h3>42 ते 60 HP खोडवा कटर</h3>
-          <div class="product-card-price">
-            <span class="final">₹78,750</span>
-            <span class="base">₹75,000</span>
+      <div class="pcard" data-cat="खोडवा" data-name="42 ते 60 HP खोडवा कटर" data-img="images/product-khodva.jpg" data-tag="खोडवा" data-desc="ऊस खोडवा तोडून पुढील पिकासाठी जमीन तयार करणारे यंत्र." data-price="₹78,750">
+        <span class="pcard-tag">खोडवा</span>
+        <div class="pcard-img"><img src="images/product-khodva.jpg" alt="खोडवा कटर"></div>
+        <div class="pcard-body">
+          <h3>खोडवा कटर</h3>
+          <p>ऊस खोडवा जलद आणि स्वच्छ काढणारे, मजबूत DK बांधणी.</p>
+          <div class="pcard-bottom">
+            <div><span class="pcard-label">GST सह</span><b>₹78,750</b></div>
+            <button class="pcard-link">तपशील →</button>
           </div>
-          <span class="product-card-gst">GST 5% सह</span>
         </div>
       </div>
 
-      <div class="product-card" data-name="42 ते 60 HP DK वीडर" data-img="images/weeder.jpg" data-tag="वीडर" data-desc="पिकांमधील तण काढून जमीन मोकळी करणारे टिकाऊ वीडर." data-price="" data-base="">
-        <div class="product-card-img"><img src="images/weeder.jpg" alt="DK वीडर"></div>
-        <div class="product-card-body">
-          <h3>42 ते 60 HP DK वीडर</h3>
-          <span class="product-card-callprice">📞 किंमतीसाठी संपर्क करा</span>
-        </div>
-      </div>
-
-      <div class="product-card" data-name="32 ते 35 HP ऑर्चर्ड DK वीडर" data-img="images/weeder.jpg" data-tag="वीडर" data-desc="फळबागांसाठी खास बनवलेले हलके व कार्यक्षम वीडर." data-price="" data-base="">
-        <div class="product-card-img"><img src="images/weeder.jpg" alt="ऑर्चर्ड DK वीडर"></div>
-        <div class="product-card-body">
-          <h3>32 ते 35 HP ऑर्चर्ड DK वीडर</h3>
-          <span class="product-card-callprice">📞 किंमतीसाठी संपर्क करा</span>
+      <div class="pcard" data-cat="वीडर" data-name="DK वीडर / ऑर्चर्ड DK वीडर" data-img="images/weeder.jpg" data-tag="वीडर" data-desc="अंतरामागच आणि बागांसाठी बहुपयोगी वीडर — 42-60 HP व 32-35 HP असे दोन प्रकार उपलब्ध." data-price="">
+        <span class="pcard-tag">वीडर</span>
+        <div class="pcard-img"><img src="images/weeder.jpg" alt="DK वीडर"></div>
+        <div class="pcard-body">
+          <h3>DK वीडर / ऑर्चर्ड DK वीडर</h3>
+          <p>अंतरामागच आणि बागांसाठी बहुपयोगी वीडर.</p>
+          <div class="pcard-bottom">
+            <div><span class="pcard-callprice">किंमतीसाठी संपर्क</span></div>
+            <button class="pcard-link">तपशील →</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="products" id="products">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="tag">किंमत यादी</span>
-      <h2>आमची यंत्रे आणि अंतिम किंमत (GST सह)</h2>
-      <p>खाली दिलेल्या सर्व किंमतींमध्ये 5% GST आधीच जोडून अंतिम किंमत दाखवली आहे — वेगळा हिशोब करायची गरज नाही.</p>
+<section class="green-band" id="why">
+  <div class="wrap green-band-grid">
+    <div class="green-band-text">
+      <span class="tag" style="background:rgba(255,255,255,.15); color:#FFEACE;">दत्तकृपा पद्धत</span>
+      <h2>यंत्र विकून <br>नाते थांबत नाही.</h2>
+      <p>तुमचं शेत नीट काम करावं, यासाठी योग्य मार्गदर्शन आणि आवश्यक तेव्हा सपोर्ट देतो.</p>
+      <a class="uiv-btn green-band-btn" href="https://wa.me/919226772753" target="_blank" rel="noopener">
+        <span class="gradient"></span>
+        <span class="label">तुम्हीच बोला →</span>
+        <span class="ripple"></span>
+      </a>
     </div>
-
-    <div class="price-table-wrap">
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th class="num">अनु.क्र.</th>
-              <th>औजारांची नावे</th>
-              <th class="num">मूळ किंमत</th>
-              <th class="num">GST (5%)</th>
-              <th class="num">अंतिम किंमत</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="sr num">1</td>
-              <td class="name">हळद आले बटाटा लागवड मशीन</td>
-              <td class="base num">₹85,000</td>
-              <td class="gst num"><span class="gst-tag">₹4,250</span></td>
-              <td class="final num final-price">₹89,250</td>
-            </tr>
-            <tr>
-              <td class="sr num">2</td>
-              <td class="name">हळद आले बटाटा काढणी मशीन</td>
-              <td class="base num">₹1,45,000</td>
-              <td class="gst num"><span class="gst-tag">₹7,250</span></td>
-              <td class="final num final-price">₹1,52,250</td>
-            </tr>
-            <tr>
-              <td class="sr num">3</td>
-              <td class="name">BBF प्लॅंटर 42 ते 60 HP पेरणी यंत्र</td>
-              <td class="base num">₹67,000</td>
-              <td class="gst num"><span class="gst-tag">₹3,350</span></td>
-              <td class="final num final-price">₹70,350</td>
-            </tr>
-            <tr>
-              <td class="sr num">4</td>
-              <td class="name">42 ते 60 HP ऊस लागवड मशीन</td>
-              <td class="base num">₹1,00,000</td>
-              <td class="gst num"><span class="gst-tag">₹5,000</span></td>
-              <td class="final num final-price">₹1,05,000</td>
-            </tr>
-            <tr>
-              <td class="sr num">5</td>
-              <td class="name">42 ते 60 HP खोडवा कटर</td>
-              <td class="base num">₹75,000</td>
-              <td class="gst num"><span class="gst-tag">₹3,750</span></td>
-              <td class="final num final-price">₹78,750</td>
-            </tr>
-            <tr>
-              <td class="sr num">6</td>
-              <td class="name">42 ते 60 HP DK वीडर</td>
-              <td class="base num" colspan="3"><span class="call-price">📞 किंमतीसाठी संपर्क करा</span></td>
-            </tr>
-            <tr>
-              <td class="sr num">7</td>
-              <td class="name">32 ते 35 HP ऑर्चर्ड DK वीडर</td>
-              <td class="base num" colspan="3"><span class="call-price">📞 किंमतीसाठी संपर्क करा</span></td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="green-band-features">
+      <div class="gb-card">
+        <div class="gb-icon">🌾</div>
+        <h3>शेतासाठी बनलेले</h3>
+        <p>माती, पीक आणि तुमच्या शेतासाठी विचार करून बनवलेली रचना.</p>
       </div>
-      <div class="price-note">* वरील सर्व किंमतींमध्ये 5% GST समाविष्ट आहे. अधिक माहितीसाठी किंवा वाहतूक खर्चाबाबत विचारण्यासाठी 9226772753 या क्रमांकावर संपर्क करा.</div>
-    </div>
-  </div>
-</section>
-
-<section class="why" id="why">
-  <div class="wrap">
-    <div class="section-head on-green">
-      <span class="tag">आमची वैशिष्ट्ये</span>
-      <h2>Dattakrupa Agro का ठरते शेतकऱ्यांची पहिली पसंती</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="icon-box">🛠</div>
-        <h3>टिकाऊपणा</h3>
-        <p>वर्षानुवर्षे शेतात काम करूनही न थकणारी मजबूत यंत्रे.</p>
+      <div class="gb-card">
+        <div class="gb-icon">🏭</div>
+        <h3>वर्कशॉपमधून थेट</h3>
+        <p>मध्यस्थ नाही, थेट निर्मात्याकडून योग्य किंमतीत खरेदी.</p>
       </div>
-      <div class="why-card">
-        <div class="icon-box">💰</div>
-        <h3>योग्य किंमत</h3>
-        <p>दर्जा राखून शेतकऱ्यांना परवडणाऱ्या किंमतीत यंत्रसामग्री.</p>
+      <div class="gb-card">
+        <div class="gb-icon">🛡</div>
+        <h3>मजबूत बांधणी</h3>
+        <p>वर्षानुवर्षे शेतात टिकणारी, दर्जेदार पार्ट्सने बनलेली रचना.</p>
       </div>
-      <div class="why-card">
-        <div class="icon-box">🤝</div>
-        <h3>थेट संपर्क</h3>
-        <p>मध्यस्थांशिवाय, थेट उत्पादकाकडून खरेदी व मार्गदर्शन.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon-box">⏱</div>
-        <h3>वेळेची बचत</h3>
-        <p>मशीनमुळे लागवड व काढणीचे काम जलद आणि सोपे.</p>
+      <div class="gb-card">
+        <div class="gb-icon">💬</div>
+        <h3>माणुसकीची सेवा</h3>
+        <p>फोनवर मार्गदर्शन, वापरण्याची माहिती विनाअटी सोबत.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <div class="wrap contact-grid">
-    <div>
-      <span class="tag" style="background:rgba(229,156,88,.22); color:#FFEACE;">संपर्क साधा</span>
-      <h2>तुमच्या शेतासाठी योग्य यंत्र निवडण्यासाठी आजच बोला</h2>
-      <p class="lead">किंमत, उपलब्धता किंवा यंत्राची माहिती हवी असल्यास फोन किंवा WhatsApp वर थेट संपर्क करा.</p>
-      <div class="contact-actions">
-        <a class="uiv-btn" href="tel:9226772753">
-          <span class="gradient"></span>
-          <span class="label">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
-            कॉल करा
-          </span>
-          <span class="ripple"></span>
+<section class="orange-band" id="contact">
+  <div class="wrap orange-band-grid">
+    <div class="orange-band-text">
+      <span class="tag" style="background:rgba(255,255,255,.18); color:#fff;">भेट द्या · फोन करा · विचारपूस करा</span>
+      <h2>तुमच्या शेतासाठी<br>योग्य यंत्र शोधूया.</h2>
+      <p>सगळे पैलू, टेक्निकल प्रश्न किंवा शेतात प्रत्यक्ष भेट हवी असल्यास आधी बोलणं पुरेसं आहे.</p>
+      <div class="ob-actions">
+        <a class="ob-link" href="tel:9226772753">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+          9226772753
         </a>
-        <a class="uiv-btn" href="https://wa.me/919226772753" target="_blank" rel="noopener">
-          <span class="gradient"></span>
-          <span class="label">
-            <svg viewBox="0 0 24 24"><path d="M12.01 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm0 18.1c-1.64 0-3.17-.47-4.46-1.28l-.32-.19-3 .79.8-2.93-.21-.3A8.09 8.09 0 0 1 3.9 12c0-4.47 3.64-8.1 8.11-8.1 4.47 0 8.1 3.63 8.1 8.1 0 4.47-3.63 8.1-8.1 8.1zm4.43-5.99c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28z"/></svg>
-            WhatsApp
-          </span>
-          <span class="ripple"></span>
+        <a class="ob-link" href="https://wa.me/919226772753" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12.01 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm0 18.1c-1.64 0-3.17-.47-4.46-1.28l-.32-.19-3 .79.8-2.93-.21-.3A8.09 8.09 0 0 1 3.9 12c0-4.47 3.64-8.1 8.11-8.1 4.47 0 8.1 3.63 8.1 8.1 0 4.47-3.63 8.1-8.1 8.1zm4.43-5.99c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28z"/></svg>
+          WhatsApp
         </a>
       </div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-row">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg></div>
-        <div><b>फोन नंबर</b><span>9226772753</span></div>
-      </div>
-      <div class="contact-row">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 7.5 12.5 7.5 12.5s7.5-7 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"/></svg></div>
-        <div><b>पत्ता</b><span>N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा</span></div>
-      </div>
-      <div class="contact-row">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.75 5v5.25l4.25 2.52-.63 1.03-4.87-2.9V7h1.25z"/></svg></div>
-        <div><b>वेळ</b><span>सोम - शनि, सकाळी 9 ते संध्या 7</span></div>
+      <div class="ob-info-row">
+        <div class="ob-info">
+          <svg viewBox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 7.5 12.5 7.5 12.5s7.5-7 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"/></svg>
+          <div><b>वर्कशॉपचा पत्ता</b><span>पाचवड, ता. वाई, जि. सातारा</span></div>
+        </div>
+        <div class="ob-info">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.75 5v5.25l4.25 2.52-.63 1.03-4.87-2.9V7h1.25z"/></svg>
+          <div><b>कामाची वेळ</b><span>सोम-शनि 9 ते संध्या 7</span></div>
+        </div>
       </div>
     </div>
+
+    <form class="ob-form" id="enquiryForm">
+      <h3>चौकशी पाठवा</h3>
+      <label>तुमचे नाव
+        <input type="text" id="fName" placeholder="उदा. रमेश पाटील" required>
+      </label>
+      <label>मोबाईल नंबर
+        <input type="tel" id="fPhone" placeholder="तुमचा फोन नंबर" required>
+      </label>
+      <label>कशासाठी माहिती हवी आहे?
+        <select id="fReason">
+          <option>हळद आले बटाटा लागवड मशीन</option>
+          <option>हळद आले बटाटा काढणी मशीन</option>
+          <option>BBF प्लॅंटर पेरणी यंत्र</option>
+          <option>ऊस लागवड मशीन</option>
+          <option>खोडवा कटर</option>
+          <option>DK वीडर</option>
+          <option>इतर माहिती</option>
+        </select>
+      </label>
+      <button type="submit" class="ob-submit">माहिती पाठवा →</button>
+      <span class="ob-form-note">तुम्ही पाठवलेली माहिती थेट WhatsApp वर जाईल.</span>
+    </form>
   </div>
 </section>
 
@@ -1199,14 +1095,23 @@
     else header.classList.remove('scrolled');
   });
 
-  const slider = document.getElementById('productSlider');
-  const prevBtn = document.getElementById('sliderPrev');
-  const nextBtn = document.getElementById('sliderNext');
-  if (slider && prevBtn && nextBtn) {
-    const scrollAmount = () => slider.querySelector('.product-card').offsetWidth + 22;
-    prevBtn.addEventListener('click', () => slider.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
-    nextBtn.addEventListener('click', () => slider.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
-  }
+  // Category filters
+  const filterBtns = document.querySelectorAll('.pfilter');
+  const pcards = document.querySelectorAll('.pcard');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      pcards.forEach(card => {
+        if (filter === 'all' || card.dataset.cat === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 
   // Product detail modal
   const overlay = document.getElementById('pmodalOverlay');
@@ -1215,35 +1120,36 @@
   const modalName = document.getElementById('pmodalName');
   const modalDesc = document.getElementById('pmodalDesc');
   const modalPriceBox = document.getElementById('pmodalPriceBox');
-  const modalPrice = document.getElementById('pmodalPrice');
   const modalWaBtn = document.getElementById('pmodalWaBtn');
   const modalClose = document.getElementById('pmodalClose');
 
-  document.querySelectorAll('.product-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const name = card.dataset.name;
-      const img = card.dataset.img;
-      const tag = card.dataset.tag;
-      const desc = card.dataset.desc;
-      const price = card.dataset.price;
+  function openProductModal(card){
+    const name = card.dataset.name;
+    const img = card.dataset.img;
+    const tag = card.dataset.tag;
+    const desc = card.dataset.desc;
+    const price = card.dataset.price;
 
-      modalImg.src = img;
-      modalImg.alt = name;
-      modalTag.textContent = tag;
-      modalName.textContent = name;
-      modalDesc.textContent = desc;
+    modalImg.src = img;
+    modalImg.alt = name;
+    modalTag.textContent = tag;
+    modalName.textContent = name;
+    modalDesc.textContent = desc;
 
-      if (price) {
-        modalPriceBox.innerHTML = '<span class="plabel">GST सह किंमत</span><span class="pvalue" id="pmodalPrice">' + price + '</span>';
-      } else {
-        modalPriceBox.innerHTML = '<span class="plabel">किंमतीसाठी संपर्क करा</span><span class="pcall">📞 9226772753</span>';
-      }
+    if (price) {
+      modalPriceBox.innerHTML = '<span class="plabel">GST सह किंमत</span><span class="pvalue">' + price + '</span>';
+    } else {
+      modalPriceBox.innerHTML = '<span class="plabel">किंमतीसाठी संपर्क करा</span><span class="pcall">📞 9226772753</span>';
+    }
 
-      modalWaBtn.href = 'https://wa.me/919226772753?text=' + encodeURIComponent('नमस्कार, मला "' + name + '" या यंत्राबद्दल माहिती हवी आहे.');
+    modalWaBtn.href = 'https://wa.me/919226772753?text=' + encodeURIComponent('नमस्कार, मला "' + name + '" या यंत्राबद्दल माहिती हवी आहे.');
 
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.querySelectorAll('.pcard').forEach(card => {
+    card.addEventListener('click', () => openProductModal(card));
   });
 
   function closeModal(){
@@ -1253,6 +1159,19 @@
   modalClose.addEventListener('click', closeModal);
   overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  // Enquiry form -> WhatsApp
+  const enquiryForm = document.getElementById('enquiryForm');
+  if (enquiryForm) {
+    enquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('fName').value.trim();
+      const phone = document.getElementById('fPhone').value.trim();
+      const reason = document.getElementById('fReason').value;
+      const msg = 'नमस्कार, माझं नाव ' + name + ' आहे (फोन: ' + phone + '). मला "' + reason + '" याबद्दल माहिती हवी आहे.';
+      window.open('https://wa.me/919226772753?text=' + encodeURIComponent(msg), '_blank');
+    });
+  }
 </script>
 
 </body>
