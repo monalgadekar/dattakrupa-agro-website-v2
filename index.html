@@ -151,6 +151,28 @@
   .uiv-btn--sm{ padding: .65em 1.5em; font-size: .95rem; }
   .uiv-btn--sm svg{ width: 16px; height: 16px; }
 
+  /* -------- Language Toggle -------- */
+  .lang-toggle{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-family: 'Mukta', sans-serif;
+  }
+  .lt-option{
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    transition: color .15s ease;
+  }
+  .lt-option.active{ color: var(--green-deep); font-weight: 700; }
+  .lt-sep{ color: var(--line); font-size: .8rem; }
+  .header-actions{ display:flex; align-items:center; gap: 14px; }
+
   /* -------- Hero -------- */
   .hero{
     position: relative;
@@ -705,6 +727,8 @@
   }
   @media (max-width: 760px){
     nav ul{ display:none; }
+    .lt-option{ font-size: .78rem; }
+    .lang-toggle{ padding: 6px 10px; }
     section{ padding: 72px 0; }
     .pgrid{ grid-template-columns: 1fr; }
     .green-band-features{ grid-template-columns: 1fr; }
@@ -732,20 +756,27 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#product-grid">यंत्रे</a></li>
-        <li><a href="#about">आमची गोष्ट</a></li>
-        <li><a href="#why">का दत्तकृपा?</a></li>
-        <li><a href="#contact">संपर्क</a></li>
+        <li><a href="#product-grid" data-i18n="nav.machines">यंत्रे</a></li>
+        <li><a href="#about" data-i18n="nav.about">आमची गोष्ट</a></li>
+        <li><a href="#why" data-i18n="nav.why">का दत्तकृपा?</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">संपर्क</a></li>
       </ul>
     </nav>
-    <a class="uiv-btn uiv-btn--sm" href="tel:9226772753">
-      <span class="gradient"></span>
-      <span class="label">
-        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+    <div class="header-actions">
+      <button class="lang-toggle" id="langToggle" type="button">
+        <span class="lt-option active" data-lang="mr">मराठी</span>
+        <span class="lt-sep">|</span>
+        <span class="lt-option" data-lang="en">English</span>
+      </button>
+      <a class="uiv-btn uiv-btn--sm" href="tel:9226772753">
+        <span class="gradient"></span>
+        <span class="label">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
         9226772753
       </span>
       <span class="ripple"></span>
     </a>
+    </div>
   </div>
 </header>
 
@@ -754,38 +785,38 @@
   <div class="hero-blob hero-blob-2"></div>
   <div class="wrap hero-split">
     <div class="hero-text">
-      <span class="eyebrow-light"><span class="dot"></span> शेतकऱ्यांच्या भरवशाचे — वाई, सातारा</span>
-      <h1>शेतात राबणारी <span>यंत्रे.</span> मनापासून बनवणारे आम्ही.</h1>
-      <p class="lead">Dattakrupa Agro — शेतकऱ्यांच्या गरजेतून तयार झालेली शेतीची यंत्रे. थेट वर्कशॉपमधून, योग्य किंमतीत आणि तुमच्या शेतासाठी.</p>
+      <span class="eyebrow-light"><span class="dot"></span> <span data-i18n="hero.eyebrow">शेतकऱ्यांच्या भरवशाचे — वाई, सातारा</span></span>
+      <h1><span data-i18n="hero.h1a">शेतात राबणारी</span> <span data-i18n="hero.h1b">यंत्रे.</span> <span data-i18n="hero.h1c">मनापासून बनवणारे आम्ही.</span></h1>
+      <p class="lead" data-i18n="hero.lead">Dattakrupa Agro — शेतकऱ्यांच्या गरजेतून तयार झालेली शेतीची यंत्रे. थेट वर्कशॉपमधून, योग्य किंमतीत आणि तुमच्या शेतासाठी.</p>
       <div class="hero-ctas">
         <a class="uiv-btn" href="#product-grid">
           <span class="gradient"></span>
-          <span class="label">यंत्रे पाहा ↓</span>
+          <span class="label" data-i18n="hero.btn1">यंत्रे पाहा ↓</span>
           <span class="ripple"></span>
         </a>
         <a class="uiv-btn uiv-btn-outline" href="https://wa.me/919226772753" target="_blank" rel="noopener">
-          <span class="label">भेट बोलूया</span>
+          <span class="label" data-i18n="hero.btn2">भेट बोलूया</span>
         </a>
       </div>
       <div class="hero-stats">
-        <div class="hstat"><b>25+</b><span>वर्षांचा अनुभव</span></div>
-        <div class="hstat"><b>थेट</b><span>निर्मात्याकडून विक्री</span></div>
+        <div class="hstat"><b>25+</b><span data-i18n="hero.stat1">वर्षांचा अनुभव</span></div>
+        <div class="hstat"><b data-i18n="hero.stat2num">थेट</b><span data-i18n="hero.stat2">निर्मात्याकडून विक्री</span></div>
       </div>
     </div>
     <div class="hero-visual">
       <div class="hero-visual-frame">
-        <div class="hero-visual-top">ऊस लागवड यंत्र</div>
-        <img src="images/weeder.jpg" alt="ऊस लागवड यंत्र - Dattakrupa Agro">
+        <div class="hero-visual-top" data-i18n="hero.visualTop">ऊस लागवड यंत्र</div>
+        <img src="images/machine-3.jpg" alt="ऊस लागवड यंत्र - Dattakrupa Agro">
         <div class="hero-visual-bottom">
-          <b>अधिक माहितीसाठी संपर्क 9226772753</b>
-          <span>पत्ता. N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा.</span>
+          <b data-i18n="hero.visualB">अधिक माहितीसाठी संपर्क 9226772753</b>
+          <span data-i18n="hero.visualAddr">पत्ता. N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा.</span>
         </div>
       </div>
       <div class="hero-floating-badge">
         <span class="fb-dot">✓</span>
         <div>
-          <b>फक्त विक्री नाही</b>
-          <span>यंत्र समजपूर्वी सोबत</span>
+          <b data-i18n="hero.badgeB">फक्त विक्री नाही</b>
+          <span data-i18n="hero.badgeSpan">यंत्र समजपूर्वी सोबत</span>
         </div>
       </div>
     </div>
@@ -799,26 +830,26 @@
       <div class="ring"></div>
       <img src="images/owner.jpg" alt="विठ्ठल नथू गाडेकर - मालक, Dattakrupa Agro Engineering Works">
       <div class="owner-badge">
-        <b>विठ्ठल गाडेकर</b>
-        <span>मालक, Dattakrupa Agro</span>
+        <b data-i18n="owner.name">विठ्ठल गाडेकर</b>
+        <span data-i18n="owner.title">मालक, Dattakrupa Agro</span>
       </div>
     </div>
     <div class="about-text">
       <span class="quote-mark">"</span>
-      <h2>शेतकऱ्याचं दुःख समजतो, म्हणून टिकणारं यंत्र बनवतो</h2>
-      <p>मी विठ्ठल नथू गाडेकर, Dattakrupa Agro Engineering Works चा मालक. शेतात राबणाऱ्या प्रत्येक शेतकऱ्याचे कष्ट मी जवळून पाहिले आहेत — म्हणूनच आमची प्रत्येक मशीन प्रत्यक्ष शेतातल्या अनुभवातून, मजबूत बांधणीसह तयार केली जाते.</p>
-      <p>हळद, आले, बटाटा लागवड-काढणी असो किंवा ऊस लागवड — आम्ही फक्त यंत्र विकत नाही, तर शेतकऱ्याच्या कामाचा वेळ आणि खर्च दोन्ही वाचवतो. गुणवत्तेशी कधीही तडजोड नाही.</p>
+      <h2 data-i18n="about.h2">शेतकऱ्याचं दुःख समजतो, म्हणून टिकणारं यंत्र बनवतो</h2>
+      <p data-i18n="about.p1">मी विठ्ठल नथू गाडेकर, Dattakrupa Agro Engineering Works चा मालक. शेतात राबणाऱ्या प्रत्येक शेतकऱ्याचे कष्ट मी जवळून पाहिले आहेत — म्हणूनच आमची प्रत्येक मशीन प्रत्यक्ष शेतातल्या अनुभवातून, मजबूत बांधणीसह तयार केली जाते.</p>
+      <p data-i18n="about.p2">हळद, आले, बटाटा लागवड-काढणी असो किंवा ऊस लागवड — आम्ही फक्त यंत्र विकत नाही, तर शेतकऱ्याच्या कामाचा वेळ आणि खर्च दोन्ही वाचवतो. गुणवत्तेशी कधीही तडजोड नाही.</p>
       <div class="owner-sign">
         <div class="bar"></div>
         <div>
-          <b>विठ्ठल नथू गाडेकर</b>
-          <span>N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा</span>
+          <b data-i18n="about.signName">विठ्ठल नथू गाडेकर</b>
+          <span data-i18n="about.signAddr">N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा</span>
         </div>
       </div>
       <div class="about-pills">
-        <span class="about-pill">स्थानिक निर्मिती</span>
-        <span class="about-pill">भेट मार्गदर्शन</span>
-        <span class="about-pill">शेतकरी प्रथम</span>
+        <span class="about-pill" data-i18n="about.pill1">स्थानिक निर्मिती</span>
+        <span class="about-pill" data-i18n="about.pill2">भेट मार्गदर्शन</span>
+        <span class="about-pill" data-i18n="about.pill3">शेतकरी प्रथम</span>
       </div>
     </div>
   </div>
@@ -827,26 +858,26 @@
 <section class="gallery" id="gallery">
   <div class="wrap">
     <div class="section-head on-green">
-      <span class="tag">शेतात काम करताना</span>
-      <h2>काम बोलतं.</h2>
-      <p>फक्त बोलण्यापुरतं नाही — आमची मशीन्स प्रत्यक्ष शेतकऱ्यांच्या शेतात कशी काम करतात ते पहा.</p>
+      <span class="tag" data-i18n="gallery.tag">शेतात काम करताना</span>
+      <h2 data-i18n="gallery.h2">काम बोलतं.</h2>
+      <p data-i18n="gallery.p">फक्त बोलण्यापुरतं नाही — आमची मशीन्स प्रत्यक्ष शेतकऱ्यांच्या शेतात कशी काम करतात ते पहा.</p>
     </div>
     <div class="gallery-grid">
-      <a class="g1" href="images/machine_5.jpg" target="_blank" rel="noopener">
-        <img src="images/machine_5.jpg" alt="हळद आले बटाटा लागवड यंत्र - शेतात">
-        <div class="gallery-cap">लागवड यंत्र — शेतात तयार</div>
+      <a class="g1" href="images/machine-5.jpg" target="_blank" rel="noopener">
+        <img src="images/machine-5.jpg" alt="हळद आले बटाटा लागवड यंत्र - शेतात">
+        <div class="gallery-cap" data-i18n="gallery.cap1">लागवड यंत्र — शेतात तयार</div>
       </a>
-      <a class="g2" href="images/machine_3.jpg" target="_blank" rel="noopener">
-        <img src="images/machine_3.jpg" alt="ऊस लागवड यंत्र - ट्रॅक्टरसह हवाई दृश्य">
-        <div class="gallery-cap">ऊस लागवड यंत्र</div>
+      <a class="g2" href="images/machine-3.jpg" target="_blank" rel="noopener">
+        <img src="images/machine-3.jpg" alt="ऊस लागवड यंत्र - ट्रॅक्टरसह हवाई दृश्य">
+        <div class="gallery-cap" data-i18n="gallery.cap2">ऊस लागवड यंत्र</div>
       </a>
-      <a class="g3" href="images/machine_1.jpg" target="_blank" rel="noopener">
-        <img src="images/machine_1.jpg" alt="ऊस लागवड यंत्र क्लोजअप">
-        <div class="gallery-cap">क्लोजअप</div>
+      <a class="g3" href="images/machine-1.jpg" target="_blank" rel="noopener">
+        <img src="images/machine-1.jpg" alt="ऊस लागवड यंत्र क्लोजअप">
+        <div class="gallery-cap" data-i18n="gallery.cap3">क्लोजअप</div>
       </a>
-      <a class="g4" href="images/machine_2.jpg" target="_blank" rel="noopener">
-        <img src="images/machine_2.jpg" alt="ऊस लागवड यंत्र काम करताना">
-        <div class="gallery-cap">प्रत्यक्ष काम सुरू</div>
+      <a class="g4" href="images/machine-2.jpg" target="_blank" rel="noopener">
+        <img src="images/machine-2.jpg" alt="ऊस लागवड यंत्र काम करताना">
+        <div class="gallery-cap" data-i18n="gallery.cap4">प्रत्यक्ष काम सुरू</div>
       </a>
     </div>
   </div>
@@ -856,96 +887,96 @@
   <div class="wrap">
     <div class="pgrid-head-row">
       <div class="section-head" style="margin-bottom:0;">
-        <span class="tag">आमची यंत्रे</span>
-        <h2>काम सोपे करणारी सात साथीदार.</h2>
+        <span class="tag" data-i18n="pgrid.tag">आमची यंत्रे</span>
+        <h2 data-i18n="pgrid.h2">काम सोपे करणारी सात साथीदार.</h2>
       </div>
-      <p class="pgrid-sub">प्रत्येक यंत्रावर रचना शेतातल्या खऱ्या कामातून झाली — निवडा, अंतिम किंमत पाहा किंवा तपशील बघा.</p>
+      <p class="pgrid-sub" data-i18n="pgrid.sub">प्रत्येक यंत्रावर रचना शेतातल्या खऱ्या कामातून झाली — निवडा, अंतिम किंमत पाहा किंवा तपशील बघा.</p>
     </div>
 
     <div class="pgrid-filters" id="pgridFilters">
-      <button class="pfilter active" data-filter="all">सर्व यंत्रे</button>
-      <button class="pfilter" data-filter="लागवड">लागवड</button>
-      <button class="pfilter" data-filter="काढणी">काढणी</button>
-      <button class="pfilter" data-filter="पेरणी">पेरणी</button>
-      <button class="pfilter" data-filter="खोडवा">खोडवा</button>
-      <button class="pfilter" data-filter="वीडर">वीडर</button>
+      <button class="pfilter active" data-filter="all" data-i18n="filter.all">सर्व यंत्रे</button>
+      <button class="pfilter" data-filter="लागवड" data-i18n="filter.lagvad">लागवड</button>
+      <button class="pfilter" data-filter="काढणी" data-i18n="filter.kadhani">काढणी</button>
+      <button class="pfilter" data-filter="पेरणी" data-i18n="filter.perni">पेरणी</button>
+      <button class="pfilter" data-filter="खोडवा" data-i18n="filter.khodva">खोडवा</button>
+      <button class="pfilter" data-filter="वीडर" data-i18n="filter.weeder">वीडर</button>
     </div>
 
     <div class="pgrid" id="productGrid">
-      <div class="pcard" data-cat="लागवड" data-name="हळद आले बटाटा लागवड मशीन" data-img="images/product-planting.jpg" data-tag="लागवड" data-desc="जमिनीत योग्य खोलीवर बियाणे अचूक लागवड करणारे मजबूत यंत्र." data-price="₹89,250">
-        <span class="pcard-tag">लागवड</span>
+      <div class="pcard" data-cat="लागवड" data-name="हळद आले बटाटा लागवड मशीन" data-name-en="Turmeric Ginger Potato Planting Machine" data-img="images/product-planting.jpg" data-tag="लागवड" data-tag-en="Planting" data-desc="जमिनीत योग्य खोलीवर बियाणे अचूक लागवड करणारे मजबूत यंत्र." data-desc-en="A sturdy machine that plants seeds at the right depth with precision." data-price="₹89,250">
+        <span class="pcard-tag" data-i18n="filter.lagvad">लागवड</span>
         <div class="pcard-img"><img src="images/product-planting.jpg" alt="हळद आले बटाटा लागवड मशीन"></div>
         <div class="pcard-body">
-          <h3>हळद आले बटाटा लागवड मशीन</h3>
-          <p>हळद, आले बटाट्यासाठी अचूक लागवड. शेतात कमी मजुरीत काम.</p>
+          <h3 data-i18n="p1.name">हळद आले बटाटा लागवड मशीन</h3>
+          <p data-i18n="p1.desc">हळद, आले बटाट्यासाठी अचूक लागवड. शेतात कमी मजुरीत काम.</p>
           <div class="pcard-bottom">
-            <div><span class="pcard-label">GST सह</span><b>₹89,250</b></div>
-            <button class="pcard-link">तपशील →</button>
+            <div><span class="pcard-label" data-i18n="pcard.gst">GST सह</span><b>₹89,250</b></div>
+            <button class="pcard-link" data-i18n="pcard.detail">तपशील →</button>
           </div>
         </div>
       </div>
 
-      <div class="pcard" data-cat="काढणी" data-name="हळद आले बटाटा काढणी मशीन" data-img="images/product-harvesting.jpg" data-tag="काढणी" data-desc="मातीमधून पीक अलगद बाहेर काढणारे मजबूत काढणी यंत्र." data-price="₹1,52,250">
-        <span class="pcard-tag">काढणी</span>
+      <div class="pcard" data-cat="काढणी" data-name="हळद आले बटाटा काढणी मशीन" data-name-en="Turmeric Ginger Potato Harvesting Machine" data-img="images/product-harvesting.jpg" data-tag="काढणी" data-tag-en="Harvesting" data-desc="मातीमधून पीक अलगद बाहेर काढणारे मजबूत काढणी यंत्र." data-desc-en="A sturdy harvesting machine that gently lifts the crop out of the soil." data-price="₹1,52,250">
+        <span class="pcard-tag" data-i18n="filter.kadhani">काढणी</span>
         <div class="pcard-img"><img src="images/product-harvesting.jpg" alt="हळद आले बटाटा काढणी मशीन"></div>
         <div class="pcard-body">
-          <h3>हळद आले बटाटा काढणी मशीन</h3>
-          <p>मातीमधून पीक अलगद बाहेर काढणारे, कष्ट कमी करणारे यंत्र.</p>
+          <h3 data-i18n="p2.name">हळद आले बटाटा काढणी मशीन</h3>
+          <p data-i18n="p2.desc">मातीमधून पीक अलगद बाहेर काढणारे, कष्ट कमी करणारे यंत्र.</p>
           <div class="pcard-bottom">
-            <div><span class="pcard-label">GST सह</span><b>₹1,52,250</b></div>
-            <button class="pcard-link">तपशील →</button>
+            <div><span class="pcard-label" data-i18n="pcard.gst">GST सह</span><b>₹1,52,250</b></div>
+            <button class="pcard-link" data-i18n="pcard.detail">तपशील →</button>
           </div>
         </div>
       </div>
 
-      <div class="pcard" data-cat="पेरणी" data-name="BBF प्लॅंटर 42 ते 60 HP पेरणी यंत्र" data-img="images/product-perni.jpg" data-tag="पेरणी" data-desc="बेड पद्धतीने अचूक बियाणे व खत पेरणी करणारे यंत्र." data-price="₹70,350">
-        <span class="pcard-tag">पेरणी</span>
+      <div class="pcard" data-cat="पेरणी" data-name="BBF प्लॅंटर 42 ते 60 HP पेरणी यंत्र" data-name-en="BBF Planter 42-60 HP Sowing Machine" data-img="images/product-perni.jpg" data-tag="पेरणी" data-tag-en="Sowing" data-desc="बेड पद्धतीने अचूक बियाणे व खत पेरणी करणारे यंत्र." data-desc-en="Sows seeds and fertilizer precisely using the bed-furrow method." data-price="₹70,350">
+        <span class="pcard-tag" data-i18n="filter.perni">पेरणी</span>
         <div class="pcard-img"><img src="images/product-perni.jpg" alt="BBF प्लॅंटर पेरणी यंत्र"></div>
         <div class="pcard-body">
-          <h3>BBF प्लॅंटर पेरणी यंत्र</h3>
-          <p>BBF पद्धतीने समान अंतरावर पेरणी, पीक व्यवस्थापन अधिक सोपे.</p>
+          <h3 data-i18n="p3.name">BBF प्लॅंटर पेरणी यंत्र</h3>
+          <p data-i18n="p3.desc">BBF पद्धतीने समान अंतरावर पेरणी, पीक व्यवस्थापन अधिक सोपे.</p>
           <div class="pcard-bottom">
-            <div><span class="pcard-label">GST सह</span><b>₹70,350</b></div>
-            <button class="pcard-link">तपशील →</button>
+            <div><span class="pcard-label" data-i18n="pcard.gst">GST सह</span><b>₹70,350</b></div>
+            <button class="pcard-link" data-i18n="pcard.detail">तपशील →</button>
           </div>
         </div>
       </div>
 
-      <div class="pcard" data-cat="लागवड" data-name="42 ते 60 HP ऊस लागवड मशीन" data-img="images/machine-5.jpg" data-tag="लागवड" data-desc="ऊस लागवडीचे काम जलद, अचूक व कमी मजुरीत करणारे यंत्र." data-price="₹1,05,000">
-        <span class="pcard-tag">लागवड</span>
-        <div class="pcard-img"><img src="images/machine_5.jpg" alt="ऊस लागवड मशीन"></div>
+      <div class="pcard" data-cat="लागवड" data-name="42 ते 60 HP ऊस लागवड मशीन" data-name-en="42-60 HP Sugarcane Planting Machine" data-img="images/machine-5.jpg" data-tag="लागवड" data-tag-en="Planting" data-desc="ऊस लागवडीचे काम जलद, अचूक व कमी मजुरीत करणारे यंत्र." data-desc-en="Makes sugarcane planting faster, more accurate and less labour-intensive." data-price="₹1,05,000">
+        <span class="pcard-tag" data-i18n="filter.lagvad">लागवड</span>
+        <div class="pcard-img"><img src="images/machine-5.jpg" alt="ऊस लागवड मशीन"></div>
         <div class="pcard-body">
-          <h3>ऊस लागवड मशीन</h3>
-          <p>ऊस लागवडीचे शेतकऱ्यांच्या सिद्ध झालेले, विश्वासाने वापरले जाणारे यंत्र.</p>
+          <h3 data-i18n="p4.name">ऊस लागवड मशीन</h3>
+          <p data-i18n="p4.desc">ऊस लागवडीचे शेतकऱ्यांच्या सिद्ध झालेले, विश्वासाने वापरले जाणारे यंत्र.</p>
           <div class="pcard-bottom">
-            <div><span class="pcard-label">GST सह</span><b>₹1,05,000</b></div>
-            <button class="pcard-link">तपशील →</button>
+            <div><span class="pcard-label" data-i18n="pcard.gst">GST सह</span><b>₹1,05,000</b></div>
+            <button class="pcard-link" data-i18n="pcard.detail">तपशील →</button>
           </div>
         </div>
       </div>
 
-      <div class="pcard" data-cat="खोडवा" data-name="42 ते 60 HP खोडवा कटर" data-img="images/product-khodva.jpg" data-tag="खोडवा" data-desc="ऊस खोडवा तोडून पुढील पिकासाठी जमीन तयार करणारे यंत्र." data-price="₹78,750">
-        <span class="pcard-tag">खोडवा</span>
+      <div class="pcard" data-cat="खोडवा" data-name="42 ते 60 HP खोडवा कटर" data-name-en="42-60 HP Stubble (Khodwa) Cutter" data-img="images/product-khodva.jpg" data-tag="खोडवा" data-tag-en="Stubble" data-desc="ऊस खोडवा तोडून पुढील पिकासाठी जमीन तयार करणारे यंत्र." data-desc-en="Cuts sugarcane stubble and prepares the field for the next crop." data-price="₹78,750">
+        <span class="pcard-tag" data-i18n="filter.khodva">खोडवा</span>
         <div class="pcard-img"><img src="images/product-khodva.jpg" alt="खोडवा कटर"></div>
         <div class="pcard-body">
-          <h3>खोडवा कटर</h3>
-          <p>ऊस खोडवा जलद आणि स्वच्छ काढणारे, मजबूत DK बांधणी.</p>
+          <h3 data-i18n="p5.name">खोडवा कटर</h3>
+          <p data-i18n="p5.desc">ऊस खोडवा जलद आणि स्वच्छ काढणारे, मजबूत DK बांधणी.</p>
           <div class="pcard-bottom">
-            <div><span class="pcard-label">GST सह</span><b>₹78,750</b></div>
-            <button class="pcard-link">तपशील →</button>
+            <div><span class="pcard-label" data-i18n="pcard.gst">GST सह</span><b>₹78,750</b></div>
+            <button class="pcard-link" data-i18n="pcard.detail">तपशील →</button>
           </div>
         </div>
       </div>
 
-      <div class="pcard" data-cat="वीडर" data-name="DK वीडर / ऑर्चर्ड DK वीडर" data-img="images/weeder.jpg" data-tag="वीडर" data-desc="अंतरामागच आणि बागांसाठी बहुपयोगी वीडर — 42-60 HP व 32-35 HP असे दोन प्रकार उपलब्ध." data-price="">
-        <span class="pcard-tag">वीडर</span>
+      <div class="pcard" data-cat="वीडर" data-name="DK वीडर / ऑर्चर्ड DK वीडर" data-name-en="DK Weeder / Orchard DK Weeder" data-img="images/weeder.jpg" data-tag="वीडर" data-tag-en="Weeder" data-desc="अंतरामागच आणि बागांसाठी बहुपयोगी वीडर — 42-60 HP व 32-35 HP असे दोन प्रकार उपलब्ध." data-desc-en="A versatile weeder for row crops and orchards — available in 42-60 HP and 32-35 HP." data-price="">
+        <span class="pcard-tag" data-i18n="filter.weeder">वीडर</span>
         <div class="pcard-img"><img src="images/weeder.jpg" alt="DK वीडर"></div>
         <div class="pcard-body">
-          <h3>DK वीडर / ऑर्चर्ड DK वीडर</h3>
-          <p>अंतरामागच आणि बागांसाठी बहुपयोगी वीडर.</p>
+          <h3 data-i18n="p6.name">DK वीडर / ऑर्चर्ड DK वीडर</h3>
+          <p data-i18n="p6.desc">अंतरामागच आणि बागांसाठी बहुपयोगी वीडर.</p>
           <div class="pcard-bottom">
-            <div><span class="pcard-callprice">किंमतीसाठी संपर्क</span></div>
-            <button class="pcard-link">तपशील →</button>
+            <div><span class="pcard-callprice" data-i18n="pcard.callprice">किंमतीसाठी संपर्क</span></div>
+            <button class="pcard-link" data-i18n="pcard.detail">तपशील →</button>
           </div>
         </div>
       </div>
@@ -956,35 +987,35 @@
 <section class="green-band" id="why">
   <div class="wrap green-band-grid">
     <div class="green-band-text">
-      <span class="tag" style="background:rgba(255,255,255,.15); color:#FFEACE;">दत्तकृपा पद्धत</span>
-      <h2>यंत्र विकून <br>नाते थांबत नाही.</h2>
-      <p>तुमचं शेत नीट काम करावं, यासाठी योग्य मार्गदर्शन आणि आवश्यक तेव्हा सपोर्ट देतो.</p>
+      <span class="tag" style="background:rgba(255,255,255,.15); color:#FFEACE;" data-i18n="gb.tag">दत्तकृपा पद्धत</span>
+      <h2 data-i18n="gb.h2">यंत्र विकून <br>नाते थांबत नाही.</h2>
+      <p data-i18n="gb.p">तुमचं शेत नीट काम करावं, यासाठी योग्य मार्गदर्शन आणि आवश्यक तेव्हा सपोर्ट देतो.</p>
       <a class="uiv-btn green-band-btn" href="https://wa.me/919226772753" target="_blank" rel="noopener">
         <span class="gradient"></span>
-        <span class="label">तुम्हीच बोला →</span>
+        <span class="label" data-i18n="gb.btn">तुम्हीच बोला →</span>
         <span class="ripple"></span>
       </a>
     </div>
     <div class="green-band-features">
       <div class="gb-card">
         <div class="gb-icon">🌾</div>
-        <h3>शेतासाठी बनलेले</h3>
-        <p>माती, पीक आणि तुमच्या शेतासाठी विचार करून बनवलेली रचना.</p>
+        <h3 data-i18n="gb.c1h">शेतासाठी बनलेले</h3>
+        <p data-i18n="gb.c1p">माती, पीक आणि तुमच्या शेतासाठी विचार करून बनवलेली रचना.</p>
       </div>
       <div class="gb-card">
         <div class="gb-icon">🏭</div>
-        <h3>वर्कशॉपमधून थेट</h3>
-        <p>मध्यस्थ नाही, थेट निर्मात्याकडून योग्य किंमतीत खरेदी.</p>
+        <h3 data-i18n="gb.c2h">वर्कशॉपमधून थेट</h3>
+        <p data-i18n="gb.c2p">मध्यस्थ नाही, थेट निर्मात्याकडून योग्य किंमतीत खरेदी.</p>
       </div>
       <div class="gb-card">
         <div class="gb-icon">🛡</div>
-        <h3>मजबूत बांधणी</h3>
-        <p>वर्षानुवर्षे शेतात टिकणारी, दर्जेदार पार्ट्सने बनलेली रचना.</p>
+        <h3 data-i18n="gb.c3h">मजबूत बांधणी</h3>
+        <p data-i18n="gb.c3p">वर्षानुवर्षे शेतात टिकणारी, दर्जेदार पार्ट्सने बनलेली रचना.</p>
       </div>
       <div class="gb-card">
         <div class="gb-icon">💬</div>
-        <h3>माणुसकीची सेवा</h3>
-        <p>फोनवर मार्गदर्शन, वापरण्याची माहिती विनाअटी सोबत.</p>
+        <h3 data-i18n="gb.c4h">माणुसकीची सेवा</h3>
+        <p data-i18n="gb.c4p">फोनवर मार्गदर्शन, वापरण्याची माहिती विनाअटी सोबत.</p>
       </div>
     </div>
   </div>
@@ -993,9 +1024,9 @@
 <section class="orange-band" id="contact">
   <div class="wrap orange-band-grid">
     <div class="orange-band-text">
-      <span class="tag" style="background:rgba(255,255,255,.18); color:#fff;">भेट द्या · फोन करा · विचारपूस करा</span>
-      <h2>तुमच्या शेतासाठी<br>योग्य यंत्र शोधूया.</h2>
-      <p>सगळे पैलू, टेक्निकल प्रश्न किंवा शेतात प्रत्यक्ष भेट हवी असल्यास आधी बोलणं पुरेसं आहे.</p>
+      <span class="tag" style="background:rgba(255,255,255,.18); color:#fff;" data-i18n="ob.tag">भेट द्या · फोन करा · विचारपूस करा</span>
+      <h2 data-i18n="ob.h2">तुमच्या शेतासाठी<br>योग्य यंत्र शोधूया.</h2>
+      <p data-i18n="ob.p">सगळे पैलू, टेक्निकल प्रश्न किंवा शेतात प्रत्यक्ष भेट हवी असल्यास आधी बोलणं पुरेसं आहे.</p>
       <div class="ob-actions">
         <a class="ob-link" href="tel:9226772753">
           <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
@@ -1009,36 +1040,36 @@
       <div class="ob-info-row">
         <div class="ob-info">
           <svg viewBox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 7.5 12.5 7.5 12.5s7.5-7 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"/></svg>
-          <div><b>वर्कशॉपचा पत्ता</b><span>पाचवड, ता. वाई, जि. सातारा</span></div>
+          <div><b data-i18n="ob.info1b">वर्कशॉपचा पत्ता</b><span data-i18n="ob.info1s">पाचवड, ता. वाई, जि. सातारा</span></div>
         </div>
         <div class="ob-info">
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.75 5v5.25l4.25 2.52-.63 1.03-4.87-2.9V7h1.25z"/></svg>
-          <div><b>कामाची वेळ</b><span>सोम-शनि 9 ते संध्या 7</span></div>
+          <div><b data-i18n="ob.info2b">कामाची वेळ</b><span data-i18n="ob.info2s">सोम-शनि 9 ते संध्या 7</span></div>
         </div>
       </div>
     </div>
 
     <form class="ob-form" id="enquiryForm">
-      <h3>चौकशी पाठवा</h3>
-      <label>तुमचे नाव
-        <input type="text" id="fName" placeholder="उदा. रमेश पाटील" required>
+      <h3 data-i18n="ob.formTitle">चौकशी पाठवा</h3>
+      <label data-i18n="ob.labelName">तुमचे नाव
+        <input type="text" id="fName" placeholder="उदा. रमेश पाटील" data-i18n-placeholder="ob.placeName" required>
       </label>
-      <label>मोबाईल नंबर
-        <input type="tel" id="fPhone" placeholder="तुमचा फोन नंबर" required>
+      <label data-i18n="ob.labelPhone">मोबाईल नंबर
+        <input type="tel" id="fPhone" placeholder="तुमचा फोन नंबर" data-i18n-placeholder="ob.placePhone" required>
       </label>
-      <label>कशासाठी माहिती हवी आहे?
+      <label data-i18n="ob.labelReason">कशासाठी माहिती हवी आहे?
         <select id="fReason">
-          <option>हळद आले बटाटा लागवड मशीन</option>
-          <option>हळद आले बटाटा काढणी मशीन</option>
-          <option>BBF प्लॅंटर पेरणी यंत्र</option>
-          <option>ऊस लागवड मशीन</option>
-          <option>खोडवा कटर</option>
-          <option>DK वीडर</option>
-          <option>इतर माहिती</option>
+          <option data-i18n="p1.name">हळद आले बटाटा लागवड मशीन</option>
+          <option data-i18n="p2.name">हळद आले बटाटा काढणी मशीन</option>
+          <option data-i18n="p3.name">BBF प्लॅंटर पेरणी यंत्र</option>
+          <option data-i18n="p4.name">ऊस लागवड मशीन</option>
+          <option data-i18n="p5.name">खोडवा कटर</option>
+          <option data-i18n="ob.optWeeder">DK वीडर</option>
+          <option data-i18n="ob.optOther">इतर माहिती</option>
         </select>
       </label>
-      <button type="submit" class="ob-submit">माहिती पाठवा →</button>
-      <span class="ob-form-note">तुम्ही पाठवलेली माहिती थेट WhatsApp वर जाईल.</span>
+      <button type="submit" class="ob-submit" data-i18n="ob.submit">माहिती पाठवा →</button>
+      <span class="ob-form-note" data-i18n="ob.note">तुम्ही पाठवलेली माहिती थेट WhatsApp वर जाईल.</span>
     </form>
   </div>
 </section>
@@ -1053,14 +1084,14 @@
         <svg viewBox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 7.5 12.5 7.5 12.5s7.5-7 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"/></svg>
       </div>
       <div class="map-text">
-        <b>NH4 Highway, Kisanveer Sugar Factory जवळ, भुईंज</b>
+        <b data-i18n="footer.mapB">NH4 Highway, Kisanveer Sugar Factory जवळ, भुईंज</b>
         <span>Near Bhuinj, Maharashtra 415530</span>
       </div>
       <div class="map-arrow">
         <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="#EDE7D9" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
     </a>
-    <div class="footer-bottom">© Dattakrupa Agro Engineering Works — सर्व हक्क राखीव | मालक: विठ्ठल नथू गाडेकर</div>
+    <div class="footer-bottom" data-i18n="footer.bottom">© Dattakrupa Agro Engineering Works — सर्व हक्क राखीव | मालक: विठ्ठल नथू गाडेकर</div>
   </div>
 </footer>
 
@@ -1077,18 +1108,161 @@
       <h3 id="pmodalName"></h3>
       <p id="pmodalDesc"></p>
       <div class="pmodal-price-box" id="pmodalPriceBox">
-        <span class="plabel">GST सह किंमत</span>
+        <span class="plabel" data-i18n="modal.gstLabel">GST सह किंमत</span>
         <span class="pvalue" id="pmodalPrice"></span>
       </div>
       <a class="pmodal-wa" id="pmodalWaBtn" href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M12.01 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm0 18.1c-1.64 0-3.17-.47-4.46-1.28l-.32-.19-3 .79.8-2.93-.21-.3A8.09 8.09 0 0 1 3.9 12c0-4.47 3.64-8.1 8.11-8.1 4.47 0 8.1 3.63 8.1 8.1 0 4.47-3.63 8.1-8.1 8.1zm4.43-5.99c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28z"/></svg>
-        व्हॉट्सअॅपवर चौकशी
+        <span data-i18n="modal.waBtn">व्हॉट्सअॅपवर चौकशी</span>
       </a>
     </div>
   </div>
 </div>
 
 <script>
+  // -------- Marathi / English translation --------
+  const translations = {
+    'nav.machines': ['यंत्रे', 'Machines'],
+    'nav.about': ['आमची गोष्ट', 'Our Story'],
+    'nav.why': ['का दत्तकृपा?', 'Why Us?'],
+    'nav.contact': ['संपर्क', 'Contact'],
+
+    'hero.eyebrow': ['शेतकऱ्यांच्या भरवशाचे — वाई, सातारा', "Farmers' trusted name — Wai, Satara"],
+    'hero.h1a': ['शेतात राबणारी', 'Machines that work'],
+    'hero.h1b': ['यंत्रे.', 'the field.'],
+    'hero.h1c': ['मनापासून बनवणारे आम्ही.', 'Built by us, with heart.'],
+    'hero.lead': ['Dattakrupa Agro — शेतकऱ्यांच्या गरजेतून तयार झालेली शेतीची यंत्रे. थेट वर्कशॉपमधून, योग्य किंमतीत आणि तुमच्या शेतासाठी.',
+                   'Dattakrupa Agro — farm machines built from real farmer needs. Straight from our workshop, at a fair price, made for your field.'],
+    'hero.btn1': ['यंत्रे पाहा ↓', 'See Machines ↓'],
+    'hero.btn2': ['भेट बोलूया', "Let's Talk"],
+    'hero.stat1': ['वर्षांचा अनुभव', 'Years of experience'],
+    'hero.stat2num': ['थेट', 'Direct'],
+    'hero.stat2': ['निर्मात्याकडून विक्री', 'Sales from the maker'],
+    'hero.visualTop': ['ऊस लागवड यंत्र', 'Sugarcane Planting Machine'],
+    'hero.visualB': ['अधिक माहितीसाठी संपर्क 9226772753', 'For more info call 9226772753'],
+    'hero.visualAddr': ['पत्ता. N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा.', 'Address: NH 4, near Pune-Bangalore Highway, Pachwad, Tal. Wai, Dist. Satara.'],
+    'hero.badgeB': ['फक्त विक्री नाही', 'Not just a sale'],
+    'hero.badgeSpan': ['यंत्र समजपूर्वी सोबत', 'We stay with you, machine explained'],
+
+    'owner.name': ['विठ्ठल गाडेकर', 'Vitthal Gadekar'],
+    'owner.title': ['मालक, Dattakrupa Agro', 'Owner, Dattakrupa Agro'],
+    'about.h2': ['शेतकऱ्याचं दुःख समजतो, म्हणून टिकणारं यंत्र बनवतो', "We understand a farmer's struggle, so we build machines that last"],
+    'about.p1': ['मी विठ्ठल नथू गाडेकर, Dattakrupa Agro Engineering Works चा मालक. शेतात राबणाऱ्या प्रत्येक शेतकऱ्याचे कष्ट मी जवळून पाहिले आहेत — म्हणूनच आमची प्रत्येक मशीन प्रत्यक्ष शेतातल्या अनुभवातून, मजबूत बांधणीसह तयार केली जाते.',
+                  "I'm Vitthal Nathu Gadekar, owner of Dattakrupa Agro Engineering Works. I've seen up close the hard work of every farmer in the field — that's why every machine we build comes from real field experience, with sturdy construction."],
+    'about.p2': ['हळद, आले, बटाटा लागवड-काढणी असो किंवा ऊस लागवड — आम्ही फक्त यंत्र विकत नाही, तर शेतकऱ्याच्या कामाचा वेळ आणि खर्च दोन्ही वाचवतो. गुणवत्तेशी कधीही तडजोड नाही.',
+                  'Whether it\'s turmeric, ginger, potato planting-harvesting, or sugarcane planting — we don\'t just sell machines, we save the farmer both time and money. We never compromise on quality.'],
+    'about.signName': ['विठ्ठल नथू गाडेकर', 'Vitthal Nathu Gadekar'],
+    'about.signAddr': ['N H 4, पुणे-बेंगलोर हायवे शेजारी, पाचवड, ता. वाई, जि. सातारा', 'NH 4, near Pune-Bangalore Highway, Pachwad, Tal. Wai, Dist. Satara'],
+    'about.pill1': ['स्थानिक निर्मिती', 'Locally made'],
+    'about.pill2': ['भेट मार्गदर्शन', 'On-site guidance'],
+    'about.pill3': ['शेतकरी प्रथम', 'Farmer first'],
+
+    'gallery.tag': ['शेतात काम करताना', 'At work in the field'],
+    'gallery.h2': ['काम बोलतं.', 'The work speaks.'],
+    'gallery.p': ['फक्त बोलण्यापुरतं नाही — आमची मशीन्स प्रत्यक्ष शेतकऱ्यांच्या शेतात कशी काम करतात ते पहा.', "Not just words — see how our machines actually perform in farmers' fields."],
+    'gallery.cap1': ['लागवड यंत्र — शेतात तयार', 'Planting machine — ready in the field'],
+    'gallery.cap2': ['ऊस लागवड यंत्र', 'Sugarcane planting machine'],
+    'gallery.cap3': ['क्लोजअप', 'Close-up'],
+    'gallery.cap4': ['प्रत्यक्ष काम सुरू', 'Machine at work'],
+
+    'pgrid.tag': ['आमची यंत्रे', 'Our Machines'],
+    'pgrid.h2': ['काम सोपे करणारी सात साथीदार.', 'Seven companions that make work easy.'],
+    'pgrid.sub': ['प्रत्येक यंत्रावर रचना शेतातल्या खऱ्या कामातून झाली — निवडा, अंतिम किंमत पाहा किंवा तपशील बघा.',
+                  'Each machine is designed from real field work — choose one, check the final price, or view details.'],
+
+    'filter.all': ['सर्व यंत्रे', 'All Machines'],
+    'filter.lagvad': ['लागवड', 'Planting'],
+    'filter.kadhani': ['काढणी', 'Harvesting'],
+    'filter.perni': ['पेरणी', 'Sowing'],
+    'filter.khodva': ['खोडवा', 'Stubble'],
+    'filter.weeder': ['वीडर', 'Weeder'],
+
+    'p1.name': ['हळद आले बटाटा लागवड मशीन', 'Turmeric Ginger Potato Planting Machine'],
+    'p1.desc': ['हळद, आले बटाट्यासाठी अचूक लागवड. शेतात कमी मजुरीत काम.', 'Precise planting for turmeric, ginger and potato. Less labour in the field.'],
+    'p2.name': ['हळद आले बटाटा काढणी मशीन', 'Turmeric Ginger Potato Harvesting Machine'],
+    'p2.desc': ['मातीमधून पीक अलगद बाहेर काढणारे, कष्ट कमी करणारे यंत्र.', 'Gently lifts the crop out of the soil, reducing hard labour.'],
+    'p3.name': ['BBF प्लॅंटर पेरणी यंत्र', 'BBF Planter Sowing Machine'],
+    'p3.desc': ['BBF पद्धतीने समान अंतरावर पेरणी, पीक व्यवस्थापन अधिक सोपे.', 'Sows at even spacing using the BBF method, making crop management easier.'],
+    'p4.name': ['ऊस लागवड मशीन', 'Sugarcane Planting Machine'],
+    'p4.desc': ['ऊस लागवडीचे शेतकऱ्यांच्या सिद्ध झालेले, विश्वासाने वापरले जाणारे यंत्र.', "A proven machine, trusted by farmers for sugarcane planting."],
+    'p5.name': ['खोडवा कटर', 'Stubble Cutter'],
+    'p5.desc': ['ऊस खोडवा जलद आणि स्वच्छ काढणारे, मजबूत DK बांधणी.', 'Cuts sugarcane stubble fast and clean, with sturdy DK build.'],
+    'p6.name': ['DK वीडर / ऑर्चर्ड DK वीडर', 'DK Weeder / Orchard DK Weeder'],
+    'p6.desc': ['अंतरामागच आणि बागांसाठी बहुपयोगी वीडर.', 'A versatile weeder for row crops and orchards.'],
+    'pcard.gst': ['GST सह', 'incl. GST'],
+    'pcard.detail': ['तपशील →', 'Details →'],
+    'pcard.callprice': ['किंमतीसाठी संपर्क', 'Call for price'],
+
+    'gb.tag': ['दत्तकृपा पद्धत', 'The Dattakrupa Way'],
+    'gb.h2': ['यंत्र विकून <br>नाते थांबत नाही.', "Selling a machine <br>isn't where it ends."],
+    'gb.p': ['तुमचं शेत नीट काम करावं, यासाठी योग्य मार्गदर्शन आणि आवश्यक तेव्हा सपोर्ट देतो.', 'We give the right guidance and support whenever needed, so your field keeps running well.'],
+    'gb.btn': ['तुम्हीच बोला →', 'Talk to Us →'],
+    'gb.c1h': ['शेतासाठी बनलेले', 'Built for the field'],
+    'gb.c1p': ['माती, पीक आणि तुमच्या शेतासाठी विचार करून बनवलेली रचना.', 'Designed with your soil, crop and field in mind.'],
+    'gb.c2h': ['वर्कशॉपमधून थेट', 'Direct from workshop'],
+    'gb.c2p': ['मध्यस्थ नाही, थेट निर्मात्याकडून योग्य किंमतीत खरेदी.', 'No middlemen — buy directly from the maker at a fair price.'],
+    'gb.c3h': ['मजबूत बांधणी', 'Sturdy build'],
+    'gb.c3p': ['वर्षानुवर्षे शेतात टिकणारी, दर्जेदार पार्ट्सने बनलेली रचना.', 'Built with quality parts that last for years in the field.'],
+    'gb.c4h': ['माणुसकीची सेवा', 'Personal service'],
+    'gb.c4p': ['फोनवर मार्गदर्शन, वापरण्याची माहिती विनाअटी सोबत.', 'Phone guidance and usage help, no conditions attached.'],
+
+    'ob.tag': ['भेट द्या · फोन करा · विचारपूस करा', 'Visit · Call · Enquire'],
+    'ob.h2': ['तुमच्या शेतासाठी<br>योग्य यंत्र शोधूया.', "Let's find the right<br>machine for your field."],
+    'ob.p': ['सगळे पैलू, टेक्निकल प्रश्न किंवा शेतात प्रत्यक्ष भेट हवी असल्यास आधी बोलणं पुरेसं आहे.', 'For every detail, technical question, or an on-site visit — just start with a conversation.'],
+    'ob.info1b': ['वर्कशॉपचा पत्ता', 'Workshop Address'],
+    'ob.info1s': ['पाचवड, ता. वाई, जि. सातारा', 'Pachwad, Tal. Wai, Dist. Satara'],
+    'ob.info2b': ['कामाची वेळ', 'Working Hours'],
+    'ob.info2s': ['सोम-शनि 9 ते संध्या 7', 'Mon-Sat, 9 AM to 7 PM'],
+    'ob.formTitle': ['चौकशी पाठवा', 'Send an Enquiry'],
+    'ob.labelName': ['तुमचे नाव', 'Your Name'],
+    'ob.placeName': ['उदा. रमेश पाटील', 'e.g. Ramesh Patil'],
+    'ob.labelPhone': ['मोबाईल नंबर', 'Mobile Number'],
+    'ob.placePhone': ['तुमचा फोन नंबर', 'Your phone number'],
+    'ob.labelReason': ['कशासाठी माहिती हवी आहे?', 'What do you need info about?'],
+    'ob.optWeeder': ['DK वीडर', 'DK Weeder'],
+    'ob.optOther': ['इतर माहिती', 'Other information'],
+    'ob.submit': ['माहिती पाठवा →', 'Send →'],
+    'ob.note': ['तुम्ही पाठवलेली माहिती थेट WhatsApp वर जाईल.', 'Your details will be sent directly via WhatsApp.'],
+
+    'footer.mapB': ['NH4 Highway, Kisanveer Sugar Factory जवळ, भुईंज', 'NH4 Highway, near Kisanveer Sugar Factory, Bhuinj'],
+    'footer.bottom': ['© Dattakrupa Agro Engineering Works — सर्व हक्क राखीव | मालक: विठ्ठल नथू गाडेकर', '© Dattakrupa Agro Engineering Works — All rights reserved | Owner: Vitthal Nathu Gadekar'],
+
+    'modal.gstLabel': ['GST सह किंमत', 'Price incl. GST'],
+    'modal.waBtn': ['व्हॉट्सअॅपवर चौकशी', 'Enquire on WhatsApp'],
+  };
+
+  let currentLang = localStorage.getItem('dk-lang') || 'mr';
+
+  function applyLanguage(lang){
+    currentLang = lang;
+    const idx = lang === 'en' ? 1 : 0;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[key]) {
+        el.innerHTML = translations[key][idx];
+      }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (translations[key]) {
+        el.setAttribute('placeholder', translations[key][idx]);
+      }
+    });
+    document.querySelectorAll('.lt-option').forEach(opt => {
+      opt.classList.toggle('active', opt.dataset.lang === lang);
+    });
+    document.documentElement.lang = lang;
+    localStorage.setItem('dk-lang', lang);
+  }
+
+  const langToggleBtn = document.getElementById('langToggle');
+  if (langToggleBtn) {
+    langToggleBtn.addEventListener('click', () => {
+      applyLanguage(currentLang === 'mr' ? 'en' : 'mr');
+    });
+  }
+  applyLanguage(currentLang);
+
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) header.classList.add('scrolled');
@@ -1124,10 +1298,11 @@
   const modalClose = document.getElementById('pmodalClose');
 
   function openProductModal(card){
-    const name = card.dataset.name;
+    const isEn = currentLang === 'en';
+    const name = isEn ? (card.dataset.nameEn || card.dataset.name) : card.dataset.name;
     const img = card.dataset.img;
-    const tag = card.dataset.tag;
-    const desc = card.dataset.desc;
+    const tag = isEn ? (card.dataset.tagEn || card.dataset.tag) : card.dataset.tag;
+    const desc = isEn ? (card.dataset.descEn || card.dataset.desc) : card.dataset.desc;
     const price = card.dataset.price;
 
     modalImg.src = img;
@@ -1136,13 +1311,19 @@
     modalName.textContent = name;
     modalDesc.textContent = desc;
 
+    const gstLabel = translations['modal.gstLabel'][isEn ? 1 : 0];
+    const callLabel = isEn ? 'Call for price' : 'किंमतीसाठी संपर्क करा';
+
     if (price) {
-      modalPriceBox.innerHTML = '<span class="plabel">GST सह किंमत</span><span class="pvalue">' + price + '</span>';
+      modalPriceBox.innerHTML = '<span class="plabel">' + gstLabel + '</span><span class="pvalue">' + price + '</span>';
     } else {
-      modalPriceBox.innerHTML = '<span class="plabel">किंमतीसाठी संपर्क करा</span><span class="pcall">📞 9226772753</span>';
+      modalPriceBox.innerHTML = '<span class="plabel">' + callLabel + '</span><span class="pcall">📞 9226772753</span>';
     }
 
-    modalWaBtn.href = 'https://wa.me/919226772753?text=' + encodeURIComponent('नमस्कार, मला "' + name + '" या यंत्राबद्दल माहिती हवी आहे.');
+    const waMsg = isEn
+      ? 'Hello, I would like more information about the "' + name + '".'
+      : 'नमस्कार, मला "' + name + '" या यंत्राबद्दल माहिती हवी आहे.';
+    modalWaBtn.href = 'https://wa.me/919226772753?text=' + encodeURIComponent(waMsg);
 
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -1168,7 +1349,10 @@
       const name = document.getElementById('fName').value.trim();
       const phone = document.getElementById('fPhone').value.trim();
       const reason = document.getElementById('fReason').value;
-      const msg = 'नमस्कार, माझं नाव ' + name + ' आहे (फोन: ' + phone + '). मला "' + reason + '" याबद्दल माहिती हवी आहे.';
+      const isEn = currentLang === 'en';
+      const msg = isEn
+        ? 'Hello, my name is ' + name + ' (Phone: ' + phone + '). I would like information about "' + reason + '".'
+        : 'नमस्कार, माझं नाव ' + name + ' आहे (फोन: ' + phone + '). मला "' + reason + '" याबद्दल माहिती हवी आहे.';
       window.open('https://wa.me/919226772753?text=' + encodeURIComponent(msg), '_blank');
     });
   }
