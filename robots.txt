@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dattakrupa-agro.netlify.app/sitemap.xml
