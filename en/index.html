@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dattakrupa Agro Engineering Works | Farm Equipment Manufacturer</title>
+<meta content="Dattakrupa Agro Engineering Works - Turmeric, ginger, potato and sugarcane planting &amp; harvesting machines. Wai Taluka, Satara. Contact: 9226772753" name="description"/>
+<link href="https://dattakrupa-agro.netlify.app/en/" rel="canonical"/>
+<link href="https://dattakrupa-agro.netlify.app/" hreflang="mr" rel="alternate"/>
+<link href="https://dattakrupa-agro.netlify.app/en/" hreflang="en" rel="alternate"/>
+<link href="https://dattakrupa-agro.netlify.app/" hreflang="x-default" rel="alternate"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;family=Mukta:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --orange: #E59C58;
+    --orange-deep: #996F49;
+    --orange-soft: #FFEACE;
+    --green: #005B48;
+    --green-deep: #00392D;
+    --green-soft: #E1EDE8;
+    --ink: #17140F;
+    --ink-soft: #5B5346;
+    --paper: #FAF7F1;
+    --white: #FFFFFF;
+    --line: #E7DFD1;
+    --radius: 20px;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    font-family: 'Mukta', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width: 100%; display:block; }
+  ul{ list-style: none; }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* -------- Header -------- */
+  header{
+    position: fixed;
+    top: 0; left:0; right:0;
+    z-index: 100;
+    padding: 18px 0;
+    transition: all .3s ease;
+  }
+  header{
+    background: rgba(250,247,241,0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 24px rgba(23,20,15,.06);
+  }
+  header.scrolled{
+    box-shadow: 0 2px 24px rgba(23,20,15,.08);
+    padding: 12px 0;
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+    gap: 16px;
+  }
+  .logo-wrap img{ height: 46px; width:auto; transition: height .3s ease; }
+  header.scrolled .logo-wrap img{ height: 40px; }
+  nav ul{
+    display:flex;
+    gap: 32px;
+    font-weight: 600;
+    font-size: .98rem;
+  }
+  nav a{
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  nav a:hover{ border-color: var(--orange); }
+
+  /* -------- Uiverse.io style buttons (unified across the whole site) -------- */
+  .uiv-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-family: 'Mukta', sans-serif;
+    padding: .95em 2em;
+    font-weight: 600;
+    background: #005B48;
+    color: #fff;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.6em;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .uiv-btn svg{ width: 19px; height: 19px; flex-shrink: 0; fill: #fff; position: relative; z-index: 2; }
+  .uiv-btn .gradient{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 0.6em;
+    margin-top: -0.25em;
+    background-image: linear-gradient(
+      rgba(0,0,0,0),
+      rgba(0,0,0,0),
+      rgba(0,0,0,0.3)
+    );
+    pointer-events: none;
+  }
+  .uiv-btn .label{
+    position: relative;
+    top: -1px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .uiv-btn .ripple{
+    transition-timing-function: cubic-bezier(0,0,0.2,1);
+    transition-duration: 500ms;
+    background-color: rgba(81,133,97,.6);
+    border-radius: 9999px;
+    width: 0; height: 0;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .uiv-btn:hover .ripple{ width: 16em; height: 16em; }
+  .uiv-btn:active{ transform: scale(0.97); }
+  .uiv-btn--sm{ padding: .65em 1.5em; font-size: .95rem; }
+  .uiv-btn--sm svg{ width: 16px; height: 16px; }
+
+  /* -------- Language Toggle -------- */
+  .lang-toggle{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-family: 'Mukta', sans-serif;
+  }
+  .lt-option{
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    transition: color .15s ease;
+  }
+  .lt-option.active{ color: var(--green-deep); font-weight: 700; }
+  .lt-sep{ color: var(--line); font-size: .8rem; }
+  .header-actions{ display:flex; align-items:center; gap: 14px; }
+
+  /* -------- Hero -------- */
+  .hero{
+    position: relative;
+    padding: 150px 0 90px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .hero-blob{
+    position:absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: .5;
+    z-index: 0;
+  }
+  .hero-blob-1{
+    width: 480px; height: 480px;
+    background: var(--orange-soft);
+    top: -180px; right: -120px;
+  }
+  .hero-blob-2{
+    width: 380px; height: 380px;
+    background: var(--green-soft);
+    bottom: -160px; left: -100px;
+  }
+  .hero-split{
+    position:relative;
+    z-index: 1;
+    display:grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 56px;
+    align-items:center;
+  }
+  .eyebrow-light{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: .85rem;
+    letter-spacing: .02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(23,20,15,.05);
+  }
+  .eyebrow-light .dot{ width:7px; height:7px; border-radius:50%; background: var(--orange); }
+  .hero h1{
+    font-size: clamp(2.3rem, 4.4vw, 3.4rem);
+    color: var(--ink);
+    max-width: 17ch;
+  }
+  .hero h1 span{ color: var(--orange-deep); }
+  .hero p.lead{
+    margin-top: 22px;
+    font-size: 1.14rem;
+    color: var(--ink-soft);
+    max-width: 48ch;
+  }
+  .hero-ctas{
+    display:flex;
+    gap: 16px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+  .hero-stats{
+    display:flex;
+    gap: 0;
+    margin-top: 46px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px 8px;
+    max-width: 560px;
+    box-shadow: 0 8px 24px rgba(23,20,15,.06);
+  }
+  .hstat{
+    flex:1;
+    text-align:center;
+    border-right: 1px solid var(--line);
+    padding: 0 12px;
+  }
+  .hstat:last-child{ border-right:none; }
+  .hstat b{
+    display:block;
+    font-family:'Baloo 2', sans-serif;
+    font-size: 1.6rem;
+    color: var(--green-deep);
+  }
+  .hstat span{ font-size: .8rem; color: var(--ink-soft); }
+
+  .hero-visual{ position:relative; padding-bottom: 30px; }
+  .hero-visual-frame{
+    position:relative;
+    background: var(--white);
+    border-radius: 24px;
+    padding: 10px;
+    border: 3px solid var(--green);
+    box-shadow: 0 24px 48px rgba(23,20,15,.12);
+    overflow: hidden;
+  }
+  .hero-visual-top{
+    text-align:center;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--orange-deep);
+    padding: 10px 0 12px;
+  }
+  .hero-visual-frame img{
+    width:100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+  .hero-visual-bottom{
+    background: var(--green-deep);
+    color: var(--white);
+    padding: 14px 16px;
+    border-radius: 14px;
+    margin-top: 10px;
+  }
+  .hero-visual-bottom b{ display:block; font-size: .92rem; font-weight: 600; }
+  .hero-visual-bottom span{ display:block; font-size: .78rem; color: #CFE3D8; margin-top: 3px; }
+  .hero-floating-badge{
+    position:absolute;
+    left: -20px; bottom: -14px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 16px;
+    display:flex; align-items:center; gap: 10px;
+    box-shadow: 0 12px 28px rgba(23,20,15,.14);
+    max-width: 230px;
+  }
+  .hero-floating-badge .fb-dot{
+    width: 26px; height:26px; flex-shrink:0;
+    border-radius:50%;
+    background: var(--green);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size: .8rem; font-weight:700;
+  }
+  .hero-floating-badge b{ display:block; font-size: .84rem; }
+  .hero-floating-badge span{ font-size: .74rem; color: var(--ink-soft); }
+  .uiv-btn-outline{
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--line);
+  }
+  .uiv-btn-outline .ripple{ background-color: rgba(0,91,72,.12); }
+
+
+  /* -------- Section headings -------- */
+  section{ padding: 100px 0; }
+  .section-head{ max-width: 620px; margin-bottom: 48px; }
+  .section-head .tag{
+    display:inline-block;
+    color: var(--orange-deep);
+    background: var(--orange-soft);
+    font-weight: 700;
+    font-size: .82rem;
+    letter-spacing: .03em;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .section-head.on-green .tag{ color: var(--green-deep); background: var(--green-soft); }
+  .section-head h2{ font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+  .section-head p{ color: var(--ink-soft); margin-top: 12px; font-size: 1.08rem; }
+
+  /* -------- About -------- */
+  .about{ background: var(--white); }
+  .about-grid{
+    display:grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 64px;
+    align-items:center;
+  }
+  .owner-photo-wrap{
+    position:relative;
+    width: 100%;
+    max-width: 340px;
+  }
+  .owner-photo-wrap .ring{
+    position:absolute;
+    inset: -16px;
+    border: 3px solid var(--orange);
+    border-radius: 28px;
+    z-index: 0;
+  }
+  .owner-photo-wrap .ring2{
+    position:absolute;
+    inset: 14px -30px -30px 14px;
+    background: var(--green-soft);
+    border-radius: 28px;
+    z-index: -1;
+  }
+  .owner-photo-wrap img{
+    position:relative;
+    z-index: 1;
+    border-radius: 24px;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(23,20,15,.15);
+  }
+  .owner-badge{
+    position:absolute;
+    z-index: 2;
+    bottom: -18px;
+    right: -18px;
+    background: var(--ink);
+    color: var(--white);
+    padding: 14px 20px;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0,0,0,.2);
+  }
+  .owner-badge b{ display:block; font-family:'Baloo 2',sans-serif; font-size: 1.05rem; }
+  .owner-badge span{ font-size: .8rem; color: #C9C2B3; }
+
+  .about-text .quote-mark{
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 4rem;
+    color: var(--orange);
+    line-height: .6;
+    margin-bottom: 6px;
+  }
+  .about-text h2{ font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 18px; }
+  .about-text p{ color: var(--ink-soft); font-size: 1.08rem; margin-bottom: 16px; }
+  .owner-sign{
+    margin-top: 28px;
+    display:flex;
+    align-items:center;
+    gap: 14px;
+  }
+  .owner-sign .bar{ width: 44px; height: 3px; background: var(--orange); border-radius: 2px; flex-shrink:0; }
+  .owner-sign b{ display:block; font-size: 1.1rem; }
+  .owner-sign span{ font-size: .88rem; color: var(--ink-soft); }
+  .about-pills{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .about-pill{
+    background: var(--orange-soft);
+    color: var(--orange-deep);
+    font-size: .82rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+  }
+  .about-pill:nth-child(2){ background: var(--green-soft); color: var(--green-deep); }
+  .about-pill:nth-child(3){ background: #EFE6DA; color: var(--ink-soft); }
+
+  /* -------- Gallery -------- */
+  .gallery{ background: var(--paper); }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 220px);
+    gap: 18px;
+  }
+  .gallery-grid a{ display:block; border-radius: var(--radius); overflow:hidden; position:relative; }
+  .gallery-grid img{
+    width:100%; height:100%; object-fit:cover;
+    transition: transform .4s ease;
+  }
+  .gallery-grid a:hover img{ transform: scale(1.06); }
+  .g1{ grid-column: 1 / 3; grid-row: 1 / 3; }
+  .g2{ grid-column: 3 / 5; grid-row: 1 / 2; }
+  .g3{ grid-column: 3 / 4; grid-row: 2 / 3; }
+  .g4{ grid-column: 4 / 5; grid-row: 2 / 3; }
+  .gallery-cap{
+    position:absolute; left:0; right:0; bottom:0;
+    padding: 18px;
+    background: linear-gradient(0deg, rgba(0,0,0,.6), transparent);
+    color: var(--white);
+    font-weight: 600;
+    font-size: .92rem;
+  }
+
+  /* -------- Product Grid with Filters -------- */
+  .product-grid-section{ background: var(--white); }
+  .pgrid-head-row{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .pgrid-sub{ max-width: 34ch; color: var(--ink-soft); font-size: .98rem; }
+  .pgrid-filters{
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+  }
+  .pfilter{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-family: 'Mukta', sans-serif;
+    font-weight: 600;
+    font-size: .92rem;
+    padding: 9px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease;
+  }
+  .pfilter:hover{ background: var(--orange-soft); }
+  .pfilter.active{ background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+  .pgrid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .pcard{
+    position:relative;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
+    cursor: pointer;
+  }
+  .pcard:hover{ transform: translateY(-6px); box-shadow: 0 18px 34px rgba(23,20,15,.1); }
+  .pcard-tag{
+    position:absolute;
+    top: 14px; left: 14px;
+    z-index: 2;
+    background: var(--white);
+    color: var(--orange-deep);
+    font-weight: 700;
+    font-size: .74rem;
+    padding: 5px 12px;
+    border-radius: 999px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+  }
+  .pcard-img{
+    width:100%;
+    aspect-ratio: 4/3;
+    background: var(--white);
+    display:flex; align-items:center; justify-content:center;
+    padding: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .pcard-img img{ width:100%; height:100%; object-fit: contain; }
+  .pcard-body{ padding: 18px 20px 20px; }
+  .pcard-body h3{
+    font-size: 1.05rem;
+    font-family: 'Baloo 2', sans-serif;
+    margin-bottom: 8px;
+  }
+  .pcard-body p{
+    font-size: .88rem;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    min-height: 40px;
+  }
+  .pcard-bottom{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .pcard-label{ display:block; font-size: .72rem; color: var(--ink-soft); font-weight:600; }
+  .pcard-bottom b{
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.2rem;
+    color: var(--green-deep);
+  }
+  .pcard-callprice{ color: var(--orange-deep); font-weight: 700; font-size: .88rem; }
+  .pcard-link{
+    background: none;
+    border: none;
+    color: var(--green-deep);
+    font-weight: 700;
+    font-size: .88rem;
+    cursor: pointer;
+    padding: 6px 4px;
+  }
+  .pcard-link:hover{ text-decoration: underline; }
+  .pcard[data-hide="true"]{ display:none; }
+
+  /* -------- Green Feature Band -------- */
+  .green-band{ background: var(--green-deep); color: var(--paper); }
+  .green-band-grid{
+    display:grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 50px;
+    align-items:center;
+  }
+  .green-band-text h2{ color: var(--white); font-size: clamp(1.7rem, 3vw, 2.3rem); margin-top:14px; }
+  .green-band-text p{ color: #CFE3D8; margin-top: 14px; font-size: 1.02rem; max-width: 38ch; }
+  .green-band-btn{ margin-top: 26px; background: var(--orange); }
+  .green-band-btn .ripple{ background-color: rgba(255,255,255,.35); }
+  .green-band-features{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .gb-card{
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 16px;
+    padding: 22px;
+  }
+  .gb-icon{ font-size: 1.5rem; margin-bottom: 10px; }
+  .gb-card h3{ font-family:'Baloo 2', sans-serif; font-size: 1rem; color: var(--white); margin-bottom: 6px; }
+  .gb-card p{ font-size: .86rem; color: #C3D6CC; }
+
+  /* -------- Orange CTA Band -------- */
+  .orange-band{ background: linear-gradient(135deg, var(--orange-deep), #7A5636); color: #fff; }
+  .orange-band-grid{
+    display:grid;
+    grid-template-columns: 1fr .95fr;
+    gap: 50px;
+    align-items:center;
+  }
+  .orange-band-text h2{ color: #fff; font-size: clamp(1.7rem, 3.2vw, 2.3rem); margin-top: 14px; line-height:1.25; }
+  .orange-band-text p{ color: rgba(255,255,255,.85); margin-top: 14px; font-size: 1.02rem; max-width: 42ch; }
+  .ob-actions{ display:flex; gap: 22px; margin-top: 28px; flex-wrap: wrap; }
+  .ob-link{
+    display:inline-flex; align-items:center; gap: 10px;
+    color: #fff; font-weight: 700; font-size: 1.05rem;
+    text-decoration: underline; text-underline-offset: 4px;
+  }
+  .ob-link svg{ width: 20px; height:20px; fill: #fff; }
+  .ob-info-row{ display:flex; gap: 34px; margin-top: 34px; flex-wrap: wrap; }
+  .ob-info{ display:flex; gap: 10px; align-items:flex-start; }
+  .ob-info svg{ width: 18px; height:18px; fill: rgba(255,255,255,.9); margin-top: 2px; flex-shrink:0; }
+  .ob-info b{ display:block; font-size: .84rem; color: #fff; }
+  .ob-info span{ font-size: .82rem; color: rgba(255,255,255,.75); }
+
+  .ob-form{
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 24px 48px rgba(0,0,0,.2);
+  }
+  .ob-form h3{ font-family:'Baloo 2', sans-serif; font-size: 1.3rem; color: var(--ink); margin-bottom: 20px; }
+  .ob-form label{
+    display:block;
+    font-size: .86rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .ob-form input, .ob-form select{
+    display:block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-family: 'Mukta', sans-serif;
+    font-size: .96rem;
+    color: var(--ink);
+    background: var(--paper);
+  }
+  .ob-form input:focus, .ob-form select:focus{ outline: 2px solid var(--green); border-color: var(--green); }
+  .ob-submit{
+    width: 100%;
+    background: #005B48;
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background .15s ease;
+  }
+  .ob-submit:hover{ background: #00483A; }
+  .ob-form-note{ display:block; text-align:center; font-size: .78rem; color: var(--ink-soft); margin-top: 12px; }
+
+  /* -------- Footer -------- */
+  footer{
+    background: #100D08; color: #7A7264;
+    padding: 56px 0 26px;
+    font-size: .88rem;
+  }
+  .footer-map{
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 18px;
+    border: 1px solid #322C21;
+  }
+  .footer-map iframe{
+    width: 100%;
+    height: 320px;
+    display: block;
+    border: 0;
+    filter: grayscale(.15) contrast(1.02);
+  }
+  .footer-map-card{
+    display:flex;
+    align-items:center;
+    gap: 20px;
+    background: #1B1710;
+    border: 1px solid #322C21;
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin-bottom: 34px;
+    text-decoration:none;
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .footer-map-card:hover{ transform: translateY(-3px); border-color: #005B48; }
+  .footer-map-card .map-ico{
+    width: 54px; height: 54px;
+    border-radius: 14px;
+    background: #005B48;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .footer-map-card .map-ico svg{ width: 26px; height: 26px; fill: #fff; }
+  .footer-map-card .map-text b{
+    display:block;
+    color: #EDE7D9;
+    font-size: 1.05rem;
+    font-family: 'Baloo 2', sans-serif;
+    margin-bottom: 4px;
+  }
+  .footer-map-card .map-text span{ color: #9C9384; font-size: .92rem; }
+  .footer-map-card .map-arrow{
+    margin-left: auto;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: #292319;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .footer-map-card .map-arrow svg{ width: 16px; height:16px; fill: #EDE7D9; }
+  .footer-bottom{ text-align:center; }
+
+  /* -------- Responsive -------- */
+  @media (max-width: 960px){
+    .hero-split{ grid-template-columns: 1fr; gap: 44px; }
+    .hero-visual{ max-width: 420px; margin: 0 auto; }
+    .about-grid{ grid-template-columns: 1fr; gap: 60px; }
+    .owner-photo-wrap{ margin: 0 auto; }
+    .gallery-grid{ grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 200px); }
+    .g1{ grid-column: 1/3; grid-row: 1/2; }
+    .g2{ grid-column: 1/2; grid-row: 2/3; }
+    .g3{ grid-column: 2/3; grid-row: 2/3; }
+    .g4{ grid-column: 1/3; grid-row: 3/4; }
+    .pgrid{ grid-template-columns: 1fr 1fr; }
+    .green-band-grid{ grid-template-columns: 1fr; gap: 36px; }
+    .orange-band-grid{ grid-template-columns: 1fr; gap: 36px; }
+  }
+  @media (max-width: 760px){
+    nav ul{ display:none; }
+    .lt-option{ font-size: .78rem; }
+    .lang-toggle{ padding: 6px 10px; }
+    section{ padding: 72px 0; }
+    .pgrid{ grid-template-columns: 1fr; }
+    .green-band-features{ grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px){
+    .footer-map iframe{ height: 240px; }
+    .footer-map-card{ flex-wrap: wrap; }
+    .footer-map-card .map-arrow{ margin-left: 0; }
+    .hero-ctas{ flex-direction:column; align-items:stretch; }
+    .hero-stats{ flex-wrap:wrap; }
+    .hstat{ flex: 1 1 45%; border-right:none; margin-bottom: 12px; }
+    .gallery-grid{ grid-template-columns: 1fr; grid-template-rows: repeat(4, 220px); }
+    .g1,.g2,.g3,.g4{ grid-column: 1/2; }
+    .g1{ grid-row:1/2;} .g2{ grid-row:2/3;} .g3{ grid-row:3/4;} .g4{ grid-row:4/5;}
+    .ob-actions{ gap: 16px; }
+  }
+</style>
+</head>
+<body>
+<header id="site-header">
+<div class="header-inner">
+<div class="logo-wrap">
+<img alt="Dattakrupa Agro Engineering Works" src="../logo.png"/>
+</div>
+<nav>
+<ul>
+<li><a data-i18n="nav.machines" href="#product-grid">Machines</a></li>
+<li><a data-i18n="nav.about" href="#about">Our Story</a></li>
+<li><a data-i18n="nav.why" href="#why">Why Us?</a></li>
+<li><a data-i18n="nav.contact" href="#contact">Contact</a></li>
+</ul>
+</nav>
+<div class="header-actions">
+<a class="lang-toggle" href="/">
+<span class="lt-option">मराठी</span>
+<span class="lt-sep">|</span>
+<span class="lt-option active">English</span>
+</a>
+<a class="uiv-btn uiv-btn--sm" href="tel:9226772753">
+<span class="gradient"></span>
+<span class="label">
+<svg viewbox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"></path></svg>
+        9226772753
+      </span>
+<span class="ripple"></span>
+</a>
+</div>
+</div>
+</header>
+<section class="hero">
+<div class="hero-blob hero-blob-1"></div>
+<div class="hero-blob hero-blob-2"></div>
+<div class="wrap hero-split">
+<div class="hero-text">
+<span class="eyebrow-light"><span class="dot"></span> <span data-i18n="hero.eyebrow">Farmers' trusted name — Wai, Satara</span></span>
+<h1><span data-i18n="hero.h1a">Machines that work</span> <span data-i18n="hero.h1b">the field.</span> <span data-i18n="hero.h1c">Built by us, with heart.</span></h1>
+<p class="lead" data-i18n="hero.lead">Dattakrupa Agro — farm machines built from real farmer needs. Straight from our workshop, at a fair price, made for your field.</p>
+<div class="hero-ctas">
+<a class="uiv-btn" href="#product-grid">
+<span class="gradient"></span>
+<span class="label" data-i18n="hero.btn1">See Machines ↓</span>
+<span class="ripple"></span>
+</a>
+<a class="uiv-btn uiv-btn-outline" href="https://wa.me/919226772753" rel="noopener" target="_blank">
+<span class="label" data-i18n="hero.btn2">Let's Talk</span>
+</a>
+</div>
+<div class="hero-stats">
+<div class="hstat"><b>25+</b><span data-i18n="hero.stat1">Years of experience</span></div>
+<div class="hstat"><b data-i18n="hero.stat2num">Direct</b><span data-i18n="hero.stat2">Sales from the maker</span></div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-visual-frame">
+<div class="hero-visual-top" data-i18n="hero.visualTop">Sugarcane Planting Machine</div>
+<img alt="Sugarcane Planting Machine - Dattakrupa Agro" src="../images/machine-3.jpg"/>
+<div class="hero-visual-bottom">
+<b data-i18n="hero.visualB">For more info call 9226772753</b>
+<span data-i18n="hero.visualAddr">Address: NH 4, near Pune-Bangalore Highway, Pachwad, Tal. Wai, Dist. Satara.</span>
+</div>
+</div>
+<div class="hero-floating-badge">
+<span class="fb-dot">✓</span>
+<div>
+<b data-i18n="hero.badgeB">Not just a sale</b>
+<span data-i18n="hero.badgeSpan">We stay with you, machine explained</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="about" id="about">
+<div class="wrap about-grid">
+<div class="owner-photo-wrap">
+<div class="ring2"></div>
+<div class="ring"></div>
+<img alt="Vitthal Nathu Gadekar - Owner, Dattakrupa Agro Engineering Works" src="../images/owner.jpg"/>
+<div class="owner-badge">
+<b data-i18n="owner.name">Vitthal Gadekar</b>
+<span data-i18n="owner.title">Owner, Dattakrupa Agro</span>
+</div>
+</div>
+<div class="about-text">
+<span class="quote-mark">"</span>
+<h2 data-i18n="about.h2">We understand a farmer's struggle, so we build machines that last</h2>
+<p data-i18n="about.p1">I'm Vitthal Nathu Gadekar, owner of Dattakrupa Agro Engineering Works. I've seen up close the hard work of every farmer in the field — that's why every machine we build comes from real field experience, with sturdy construction.</p>
+<p data-i18n="about.p2">Whether it's turmeric, ginger, potato planting-harvesting, or sugarcane planting — we don't just sell machines, we save the farmer both time and money. We never compromise on quality.</p>
+<div class="owner-sign">
+<div class="bar"></div>
+<div>
+<b data-i18n="about.signName">Vitthal Nathu Gadekar</b>
+<span data-i18n="about.signAddr">NH 4, near Pune-Bangalore Highway, Pachwad, Tal. Wai, Dist. Satara</span>
+</div>
+</div>
+<div class="about-pills">
+<span class="about-pill" data-i18n="about.pill1">Locally made</span>
+<span class="about-pill" data-i18n="about.pill2">On-site guidance</span>
+<span class="about-pill" data-i18n="about.pill3">Farmer first</span>
+</div>
+</div>
+</div>
+</section>
+<section class="gallery" id="gallery">
+<div class="wrap">
+<div class="section-head on-green">
+<span class="tag" data-i18n="gallery.tag">At work in the field</span>
+<h2 data-i18n="gallery.h2">The work speaks.</h2>
+<p data-i18n="gallery.p">Not just words — see how our machines actually perform in farmers' fields.</p>
+</div>
+<div class="gallery-grid">
+<a class="g1" href="../images/machine-5.jpg" rel="noopener" target="_blank">
+<img alt="Turmeric Ginger Potato Planting Machine - in the field" src="../images/machine-5.jpg"/>
+<div class="gallery-cap" data-i18n="gallery.cap1">Planting machine — ready in the field</div>
+</a>
+<a class="g2" href="../images/machine-3.jpg" rel="noopener" target="_blank">
+<img alt="ऊस लागवड यंत्र - ट्रॅक्टरसह हवाई दृश्य" src="../images/machine-3.jpg"/>
+<div class="gallery-cap" data-i18n="gallery.cap2">Sugarcane planting machine</div>
+</a>
+<a class="g3" href="../images/machine-1.jpg" rel="noopener" target="_blank">
+<img alt="Sugarcane planting machine close-up" src="../images/machine-1.jpg"/>
+<div class="gallery-cap" data-i18n="gallery.cap3">Close-up</div>
+</a>
+<a class="g4" href="../images/machine-2.jpg" rel="noopener" target="_blank">
+<img alt="Sugarcane planting machine at work" src="../images/machine-2.jpg"/>
+<div class="gallery-cap" data-i18n="gallery.cap4">Machine at work</div>
+</a>
+</div>
+</div>
+</section>
+<section class="product-grid-section" id="product-grid">
+<div class="wrap">
+<div class="pgrid-head-row">
+<div class="section-head" style="margin-bottom:0;">
+<span class="tag" data-i18n="pgrid.tag">Our Machines</span>
+<h2 data-i18n="pgrid.h2">Seven companions that make work easy.</h2>
+</div>
+<p class="pgrid-sub" data-i18n="pgrid.sub">Each machine is designed from real field work — choose one, check the final price, or view details.</p>
+</div>
+<div class="pgrid-filters" id="pgridFilters">
+<button class="pfilter active" data-filter="all" data-i18n="filter.all">All Machines</button>
+<button class="pfilter" data-filter="लागवड" data-i18n="filter.lagvad">Planting</button>
+<button class="pfilter" data-filter="काढणी" data-i18n="filter.kadhani">Harvesting</button>
+<button class="pfilter" data-filter="पेरणी" data-i18n="filter.perni">Sowing</button>
+<button class="pfilter" data-filter="खोडवा" data-i18n="filter.khodva">Stubble</button>
+<button class="pfilter" data-filter="वीडर" data-i18n="filter.weeder">Weeder</button>
+</div>
+<div class="pgrid" id="productGrid">
+<div class="pcard" data-cat="लागवड" data-desc="A sturdy machine that plants seeds at the right depth with precision." data-desc-en="A sturdy machine that plants seeds at the right depth with precision." data-img="../images/product-planting.jpg" data-name="Turmeric Ginger Potato Planting Machine" data-name-en="Turmeric Ginger Potato Planting Machine" data-price="₹89,250" data-tag="Planting" data-tag-en="Planting">
+<span class="pcard-tag" data-i18n="filter.lagvad">Planting</span>
+<div class="pcard-img"><img alt="Turmeric Ginger Potato Planting Machine" src="../images/product-planting.jpg"/></div>
+<div class="pcard-body">
+<h3 data-i18n="p1.name">Turmeric Ginger Potato Planting Machine</h3>
+<p data-i18n="p1.desc">Precise planting for turmeric, ginger and potato. Less labour in the field.</p>
+<div class="pcard-bottom">
+<div><span class="pcard-label" data-i18n="pcard.gst">incl. GST</span><b>₹89,250</b></div>
+<button class="pcard-link" data-i18n="pcard.detail">Details →</button>
+</div>
+</div>
+</div>
+<div class="pcard" data-cat="काढणी" data-desc="A sturdy harvesting machine that gently lifts the crop out of the soil." data-desc-en="A sturdy harvesting machine that gently lifts the crop out of the soil." data-img="../images/product-harvesting.jpg" data-name="Turmeric Ginger Potato Harvesting Machine" data-name-en="Turmeric Ginger Potato Harvesting Machine" data-price="₹1,52,250" data-tag="Harvesting" data-tag-en="Harvesting">
+<span class="pcard-tag" data-i18n="filter.kadhani">Harvesting</span>
+<div class="pcard-img"><img alt="Turmeric Ginger Potato Harvesting Machine" src="../images/product-harvesting.jpg"/></div>
+<div class="pcard-body">
+<h3 data-i18n="p2.name">Turmeric Ginger Potato Harvesting Machine</h3>
+<p data-i18n="p2.desc">Gently lifts the crop out of the soil, reducing hard labour.</p>
+<div class="pcard-bottom">
+<div><span class="pcard-label" data-i18n="pcard.gst">incl. GST</span><b>₹1,52,250</b></div>
+<button class="pcard-link" data-i18n="pcard.detail">Details →</button>
+</div>
+</div>
+</div>
+<div class="pcard" data-cat="पेरणी" data-desc="Sows seeds and fertilizer precisely using the bed-furrow method." data-desc-en="Sows seeds and fertilizer precisely using the bed-furrow method." data-img="../images/product-perni.jpg" data-name="BBF Planter 42-60 HP Sowing Machine" data-name-en="BBF Planter 42-60 HP Sowing Machine" data-price="₹70,350" data-tag="Sowing" data-tag-en="Sowing">
+<span class="pcard-tag" data-i18n="filter.perni">Sowing</span>
+<div class="pcard-img"><img alt="BBF Planter Sowing Machine" src="../images/product-perni.jpg"/></div>
+<div class="pcard-body">
+<h3 data-i18n="p3.name">BBF Planter Sowing Machine</h3>
+<p data-i18n="p3.desc">Sows at even spacing using the BBF method, making crop management easier.</p>
+<div class="pcard-bottom">
+<div><span class="pcard-label" data-i18n="pcard.gst">incl. GST</span><b>₹70,350</b></div>
+<button class="pcard-link" data-i18n="pcard.detail">Details →</button>
+</div>
+</div>
+</div>
+<div class="pcard" data-cat="लागवड" data-desc="Makes sugarcane planting faster, more accurate and less labour-intensive." data-desc-en="Makes sugarcane planting faster, more accurate and less labour-intensive." data-img="../images/machine-5.jpg" data-name="42-60 HP Sugarcane Planting Machine" data-name-en="42-60 HP Sugarcane Planting Machine" data-price="₹1,05,000" data-tag="Planting" data-tag-en="Planting">
+<span class="pcard-tag" data-i18n="filter.lagvad">Planting</span>
+<div class="pcard-img"><img alt="ऊस लागवड मशीन" src="../images/machine-5.jpg"/></div>
+<div class="pcard-body">
+<h3 data-i18n="p4.name">Sugarcane Planting Machine</h3>
+<p data-i18n="p4.desc">A proven machine, trusted by farmers for sugarcane planting.</p>
+<div class="pcard-bottom">
+<div><span class="pcard-label" data-i18n="pcard.gst">incl. GST</span><b>₹1,05,000</b></div>
+<button class="pcard-link" data-i18n="pcard.detail">Details →</button>
+</div>
+</div>
+</div>
+<div class="pcard" data-cat="खोडवा" data-desc="Cuts sugarcane stubble and prepares the field for the next crop." data-desc-en="Cuts sugarcane stubble and prepares the field for the next crop." data-img="../images/product-khodva.jpg" data-name="42-60 HP Stubble (Khodwa) Cutter" data-name-en="42-60 HP Stubble (Khodwa) Cutter" data-price="₹78,750" data-tag="Stubble" data-tag-en="Stubble">
+<span class="pcard-tag" data-i18n="filter.khodva">Stubble</span>
+<div class="pcard-img"><img alt="खोडवा कटर" src="../images/product-khodva.jpg"/></div>
+<div class="pcard-body">
+<h3 data-i18n="p5.name">Stubble Cutter</h3>
+<p data-i18n="p5.desc">Cuts sugarcane stubble fast and clean, with sturdy DK build.</p>
+<div class="pcard-bottom">
+<div><span class="pcard-label" data-i18n="pcard.gst">incl. GST</span><b>₹78,750</b></div>
+<button class="pcard-link" data-i18n="pcard.detail">Details →</button>
+</div>
+</div>
+</div>
+<div class="pcard" data-cat="वीडर" data-desc="A versatile weeder for row crops and orchards — available in 42-60 HP and 32-35 HP." data-desc-en="A versatile weeder for row crops and orchards — available in 42-60 HP and 32-35 HP." data-img="../images/weeder.jpg" data-name="DK Weeder / Orchard DK Weeder" data-name-en="DK Weeder / Orchard DK Weeder" data-price="" data-tag="Weeder" data-tag-en="Weeder">
+<span class="pcard-tag" data-i18n="filter.weeder">Weeder</span>
+<div class="pcard-img"><img alt="DK Weeder" src="../images/weeder.jpg"/></div>
+<div class="pcard-body">
+<h3 data-i18n="p6.name">DK Weeder / Orchard DK Weeder</h3>
+<p data-i18n="p6.desc">A versatile weeder for row crops and orchards.</p>
+<div class="pcard-bottom">
+<div><span class="pcard-callprice" data-i18n="pcard.callprice">Call for price</span></div>
+<button class="pcard-link" data-i18n="pcard.detail">Details →</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="green-band" id="why">
+<div class="wrap green-band-grid">
+<div class="green-band-text">
+<span class="tag" data-i18n="gb.tag" style="background:rgba(255,255,255,.15); color:#FFEACE;">The Dattakrupa Way</span>
+<h2 data-i18n="gb.h2">Selling a machine <br/>isn't where it ends.</h2>
+<p data-i18n="gb.p">We give the right guidance and support whenever needed, so your field keeps running well.</p>
+<a class="uiv-btn green-band-btn" href="https://wa.me/919226772753" rel="noopener" target="_blank">
+<span class="gradient"></span>
+<span class="label" data-i18n="gb.btn">Talk to Us →</span>
+<span class="ripple"></span>
+</a>
+</div>
+<div class="green-band-features">
+<div class="gb-card">
+<div class="gb-icon">🌾</div>
+<h3 data-i18n="gb.c1h">Built for the field</h3>
+<p data-i18n="gb.c1p">Designed with your soil, crop and field in mind.</p>
+</div>
+<div class="gb-card">
+<div class="gb-icon">🏭</div>
+<h3 data-i18n="gb.c2h">Direct from workshop</h3>
+<p data-i18n="gb.c2p">No middlemen — buy directly from the maker at a fair price.</p>
+</div>
+<div class="gb-card">
+<div class="gb-icon">🛡</div>
+<h3 data-i18n="gb.c3h">Sturdy build</h3>
+<p data-i18n="gb.c3p">Built with quality parts that last for years in the field.</p>
+</div>
+<div class="gb-card">
+<div class="gb-icon">💬</div>
+<h3 data-i18n="gb.c4h">Personal service</h3>
+<p data-i18n="gb.c4p">Phone guidance and usage help, no conditions attached.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="orange-band" id="contact">
+<div class="wrap orange-band-grid">
+<div class="orange-band-text">
+<span class="tag" data-i18n="ob.tag" style="background:rgba(255,255,255,.18); color:#fff;">Visit · Call · Enquire</span>
+<h2 data-i18n="ob.h2">Let's find the right<br/>machine for your field.</h2>
+<p data-i18n="ob.p">For every detail, technical question, or an on-site visit — just start with a conversation.</p>
+<div class="ob-actions">
+<a class="ob-link" href="tel:9226772753">
+<svg viewbox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"></path></svg>
+          9226772753
+        </a>
+<a class="ob-link" href="https://wa.me/919226772753" rel="noopener" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M12.01 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm0 18.1c-1.64 0-3.17-.47-4.46-1.28l-.32-.19-3 .79.8-2.93-.21-.3A8.09 8.09 0 0 1 3.9 12c0-4.47 3.64-8.1 8.11-8.1 4.47 0 8.1 3.63 8.1 8.1 0 4.47-3.63 8.1-8.1 8.1zm4.43-5.99c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28z"></path></svg>
+          WhatsApp
+        </a>
+</div>
+<div class="ob-info-row">
+<div class="ob-info">
+<svg viewbox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 7.5 12.5 7.5 12.5s7.5-7 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"></path></svg>
+<div><b data-i18n="ob.info1b">Workshop Address</b><span data-i18n="ob.info1s">Pachwad, Tal. Wai, Dist. Satara</span></div>
+</div>
+<div class="ob-info">
+<svg viewbox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.75 5v5.25l4.25 2.52-.63 1.03-4.87-2.9V7h1.25z"></path></svg>
+<div><b data-i18n="ob.info2b">Working Hours</b><span data-i18n="ob.info2s">Mon-Sat, 9 AM to 7 PM</span></div>
+</div>
+</div>
+</div>
+<form class="ob-form" id="enquiryForm">
+<h3 data-i18n="ob.formTitle">Send an Enquiry</h3>
+<label data-i18n="ob.labelName">Your Name
+  <input type="text" id="fName" placeholder="e.g. Ramesh Patil" data-i18n-placeholder="ob.placeName" required>
+</label>
+<label data-i18n="ob.labelPhone">Mobile Number
+  <input type="tel" id="fPhone" placeholder="Your phone number" data-i18n-placeholder="ob.placePhone" required>
+</label>
+<label data-i18n="ob.labelReason">What do you need info about?
+  <select id="fReason">
+    <option data-i18n="p1.name">Turmeric Ginger Potato Planting Machine</option>
+    <option data-i18n="p2.name">Turmeric Ginger Potato Harvesting Machine</option>
+    <option data-i18n="p3.name">BBF Planter Sowing Machine</option>
+    <option data-i18n="p4.name">Sugarcane Planting Machine</option>
+    <option data-i18n="p5.name">Stubble Cutter</option>
+    <option data-i18n="ob.optWeeder">DK Weeder</option>
+    <option data-i18n="ob.optOther">Other information</option>
+  </select>
+</label>
+<button class="ob-submit" data-i18n="ob.submit" type="submit">Send →</button>
+<span class="ob-form-note" data-i18n="ob.note">Your details will be sent directly via WhatsApp.</span>
+</form>
+</div>
+</section>
+<footer>
+<div class="wrap">
+<div class="footer-map">
+<iframe allowfullscreen="" height="450" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.2085591677615!2d74.02083427397325!3d17.828855489939805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc247488b52038b%3A0xe0b1740b4242bff4!2sDattakrupa%20Agro%20Engineering!5e0!3m2!1sen!2sin!4v1787650303840!5m2!1sen!2sin" style="border:0;" width="600"></iframe>
+</div>
+<a class="footer-map-card" href="https://maps.app.goo.gl/XFTPoe3c5xhjnyf6A" rel="noopener" target="_blank">
+<div class="map-ico">
+<svg viewbox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 7.5 12.5 7.5 12.5s7.5-7 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"></path></svg>
+</div>
+<div class="map-text">
+<b data-i18n="footer.mapB">NH4 Highway, near Kisanveer Sugar Factory, Bhuinj</b>
+<span>Near Bhuinj, Maharashtra 415530</span>
+</div>
+<div class="map-arrow">
+<svg viewbox="0 0 24 24"><path d="M7 17L17 7M17 7H9M17 7v8" fill="none" stroke="#EDE7D9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</a>
+<div class="footer-bottom" data-i18n="footer.bottom">© Dattakrupa Agro Engineering Works — All rights reserved | Owner: Vitthal Nathu Gadekar</div>
+</div>
+</footer>
+<div class="pmodal-overlay" id="pmodalOverlay">
+<div class="pmodal">
+<button aria-label="Close" class="pmodal-close" id="pmodalClose">
+<svg fill="none" stroke="#17140F" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+</button>
+<div class="pmodal-img">
+<img alt="" id="pmodalImg" src=""/>
+</div>
+<div class="pmodal-body">
+<span class="pmodal-tag" id="pmodalTag"></span>
+<h3 id="pmodalName"></h3>
+<p id="pmodalDesc"></p>
+<div class="pmodal-price-box" id="pmodalPriceBox">
+<span class="plabel" data-i18n="modal.gstLabel">Price incl. GST</span>
+<span class="pvalue" id="pmodalPrice"></span>
+</div>
+<a class="pmodal-wa" href="#" id="pmodalWaBtn" rel="noopener" target="_blank">
+<svg viewbox="0 0 24 24"><path d="M12.01 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12.01 22C17.53 22 22 17.52 22 12S17.53 2 12.01 2zm0 18.1c-1.64 0-3.17-.47-4.46-1.28l-.32-.19-3 .79.8-2.93-.21-.3A8.09 8.09 0 0 1 3.9 12c0-4.47 3.64-8.1 8.11-8.1 4.47 0 8.1 3.63 8.1 8.1 0 4.47-3.63 8.1-8.1 8.1zm4.43-5.99c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28z"></path></svg>
+<span data-i18n="modal.waBtn">Enquire on WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+<script>
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  // Category filters
+  const filterBtns = document.querySelectorAll('.pfilter');
+  const pcards = document.querySelectorAll('.pcard');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      pcards.forEach(card => {
+        if (filter === 'all' || card.dataset.cat === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Product detail modal
+  const overlay = document.getElementById('pmodalOverlay');
+  const modalImg = document.getElementById('pmodalImg');
+  const modalTag = document.getElementById('pmodalTag');
+  const modalName = document.getElementById('pmodalName');
+  const modalDesc = document.getElementById('pmodalDesc');
+  const modalPriceBox = document.getElementById('pmodalPriceBox');
+  const modalWaBtn = document.getElementById('pmodalWaBtn');
+  const modalClose = document.getElementById('pmodalClose');
+
+  function openProductModal(card){
+    const name = card.dataset.name;
+    const img = card.dataset.img;
+    const tag = card.dataset.tag;
+    const desc = card.dataset.desc;
+    const price = card.dataset.price;
+
+    modalImg.src = img;
+    modalImg.alt = name;
+    modalTag.textContent = tag;
+    modalName.textContent = name;
+    modalDesc.textContent = desc;
+
+    if (price) {
+      modalPriceBox.innerHTML = '<span class="plabel">Price incl. GST</span><span class="pvalue">' + price + '</span>';
+    } else {
+      modalPriceBox.innerHTML = '<span class="plabel">Call for price</span><span class="pcall">📞 9226772753</span>';
+    }
+
+    const waMsg = 'Hello, I would like more information about the "' + name + '".';
+    modalWaBtn.href = 'https://wa.me/919226772753?text=' + encodeURIComponent(waMsg);
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.querySelectorAll('.pcard').forEach(card => {
+    card.addEventListener('click', () => openProductModal(card));
+  });
+
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  modalClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  // Enquiry form -> WhatsApp
+  const enquiryForm = document.getElementById('enquiryForm');
+  if (enquiryForm) {
+    enquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('fName').value.trim();
+      const phone = document.getElementById('fPhone').value.trim();
+      const reason = document.getElementById('fReason').value;
+      const msg = 'Hello, my name is ' + name + ' (Phone: ' + phone + '). I would like information about "' + reason + '".';
+      window.open('https://wa.me/919226772753?text=' + encodeURIComponent(msg), '_blank');
+    });
+  }
+</script>
+</body>
+</html>
