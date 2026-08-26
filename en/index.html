@@ -750,6 +750,120 @@
     .g1{ grid-row:1/2;} .g2{ grid-row:2/3;} .g3{ grid-row:3/4;} .g4{ grid-row:4/5;}
     .ob-actions{ gap: 16px; }
   }
+
+  /* -------- Product Detail Modal -------- */
+  .pmodal-overlay{
+    display:none;
+    position: fixed; inset: 0;
+    background: rgba(23,20,15,.6);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .pmodal-overlay.open{ display:flex; }
+  .pmodal{
+    position:relative;
+    background: var(--paper);
+    border-radius: 24px;
+    max-width: 880px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 30px 60px rgba(0,0,0,.3);
+  }
+  .pmodal-close{
+    position:absolute;
+    top: 16px; right: 16px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  }
+  .pmodal-close svg{ width: 18px; height: 18px; }
+  .pmodal-img{
+    background: var(--white);
+    display:flex; align-items:center; justify-content:center;
+    padding: 30px;
+  }
+  .pmodal-img img{
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+  }
+  .pmodal-body{
+    padding: 40px 36px 40px 8px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .pmodal-tag{
+    display:inline-block;
+    color: var(--orange-deep);
+    font-weight: 700;
+    font-size: .85rem;
+    margin-bottom: 12px;
+  }
+  .pmodal-body h3{
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+  .pmodal-body p{
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    margin-bottom: 26px;
+  }
+  .pmodal-price-box{
+    background: var(--green-soft);
+    border-radius: 16px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+  }
+  .pmodal-price-box .plabel{
+    display:block;
+    font-size: .82rem;
+    color: var(--green-deep);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .pmodal-price-box .pvalue{
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 2rem;
+    color: var(--green-deep);
+  }
+  .pmodal-price-box .pcall{
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.3rem;
+    color: var(--orange-deep);
+  }
+  .pmodal-wa{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap: 10px;
+    background: #005B48;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 15px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .pmodal-wa:hover{ background: #00483A; transform: translateY(-2px); }
+  .pmodal-wa svg{ width: 19px; height:19px; fill: #fff; }
+
+  @media (max-width: 700px){
+    .pmodal{ grid-template-columns: 1fr; }
+    .pmodal-body{ padding: 28px 24px; }
+  }
 </style>
 </head>
 <body>
